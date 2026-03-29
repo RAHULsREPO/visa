@@ -1,5 +1,6 @@
 ---
-const siteUrl = 'https://truegatevisa.com'; // Update with actual domain
+const siteUrl = 'https://truegatevisa.com';
+const businessName = 'True Gate Visa';
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -7,12 +8,13 @@ const structuredData = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      "name": "True Gate Visa",
+      "name": businessName,
       "url": siteUrl,
       "logo": {
         "@type": "ImageObject",
         "url": `${siteUrl}/logo.svg`
       },
+      "image": `${siteUrl}/assets/images/p0ddh98z-YX4xrw9XvMiZM557.jpeg`,
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-9720409020",
@@ -31,12 +33,29 @@ const structuredData = {
       ]
     },
     {
-      "@type": "TravelAgency",
+      "@type": ["TravelAgency", "LocalBusiness"],
       "@id": `${siteUrl}/#travelagency`,
-      "name": "True Gate Visa",
+      "name": businessName,
       "description": "Trusted visa consultancy and travel partner, making global journeys effortless",
       "url": siteUrl,
+      "email": "info@truegatevisa.com",
+      "telephone": "+91-9720409020",
       "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ernakulam",
+        "addressRegion": "Kerala",
+        "postalCode": "682011",
+        "addressCountry": "IN"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "hasMap": "https://maps.app.goo.gl/9dZ9HZfuAmjhMDeaA",
+      "sameAs": [
+        "https://wa.me/919720409020"
+      ],
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "9.9312",
@@ -47,22 +66,14 @@ const structuredData = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       "url": siteUrl,
-      "name": "True Gate Visa",
+      "name": businessName,
       "description": "Professional visa consultancy and personalized travel experiences",
       "publisher": {
         "@id": `${siteUrl}/#organization`
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": `${siteUrl}/search?q={search_term_string}`
-        },
-        "query-input": "required name=search_term_string"
       }
     }
   ]
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />

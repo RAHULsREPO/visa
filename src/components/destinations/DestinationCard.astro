@@ -21,7 +21,7 @@ const { title, image, desc, layout = 'grid', link } = Astro.props;
     <div class="p-6 flex flex-col flex-grow">
       <div class="flex items-center justify-between mb-2">
         <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">{title}</h3>
-        <ArrowRight size={18} class="text-slate-300 group-hover:text-accent -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
+        <ArrowRight size={18} className="text-slate-300 group-hover:text-accent -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
       </div>
       <p class="text-sm text-slate-500 mb-4 flex-grow">{desc}</p>
       <div class="flex items-center text-xs font-bold text-accent uppercase tracking-wide">

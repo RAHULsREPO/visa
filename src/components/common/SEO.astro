@@ -8,9 +8,15 @@ interface Props {
 }
 
 const { title, description, keywords, ogImage, canonicalURL } = Astro.props;
-const siteUrl = 'https://truegatevisa.com'; // Update with your actual domain
-const defaultOgImage = `${siteUrl}/og-image.jpg`;
-const fullTitle = `${title} | True Gate Visa`;
+const siteUrl = 'https://truegatevisa.com';
+const brandName = 'True Gate Visa';
+const normalizedTitle = title.trim();
+const fullTitle = normalizedTitle.toLowerCase().includes(brandName.toLowerCase())
+  ? normalizedTitle
+  : `${normalizedTitle} | ${brandName}`;
+const defaultOgImage = `${siteUrl}/assets/images/p0ddh98z-YX4xrw9XvMiZM557.jpeg`;
+const resolvedCanonical = canonicalURL ? new URL(canonicalURL, siteUrl).toString() : new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedOgImage = ogImage ? new URL(ogImage, siteUrl).toString() : defaultOgImage;
 ---
 
 <!-- Primary Meta Tags -->
@@ -18,28 +24,35 @@ const fullTitle = `${title} | True Gate Visa`;
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 {keywords && <meta name="keywords" content={keywords} />}
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="language" content="English" />
-<meta name="author" content="True Gate Visa" />
+<meta name="author" content={brandName} />
+<meta name="theme-color" content="#1d4ed8" />
+<meta name="format-detection" content="telephone=no" />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL || Astro.url.href} />
+<link rel="canonical" href={resolvedCanonical} />
+<link rel="alternate" hreflang="en-IN" href={resolvedCanonical} />
+<link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url.href} />
+<meta property="og:url" content={resolvedCanonical} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage || defaultOgImage} />
-<meta property="og:site_name" content="True Gate Visa" />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:image:alt" content="True Gate Visa travel and visa services" />
+<meta property="og:site_name" content={brandName} />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url.href} />
+<meta property="twitter:url" content={resolvedCanonical} />
 <meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage || defaultOgImage} />
+<meta property="twitter:image" content={resolvedOgImage} />
+<meta property="twitter:image:alt" content="True Gate Visa travel and visa services" />
 
 <!-- Geo Tags for Local SEO -->
 <meta name="geo.region" content="IN-KL" />

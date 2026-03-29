@@ -15,6 +15,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ensure sticky header stays above all page content */
+main {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+footer {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
 /* Animation keyframes */
 @keyframes fadeIn {
   from {

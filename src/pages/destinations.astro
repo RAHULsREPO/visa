@@ -4,11 +4,6 @@ import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
 import InternationalSection from '../components/destinations/InternationalSection.astro';
 import DomesticSection from '../components/destinations/DomesticSection.astro';
-import Hero from '../components/home/Hero.astro'; // Reusing Hero or creating a specific one? 
-// The original destinations page had a specific hero. I should probably extract that too to keep it modular or just inline it if it's small. 
-// "Ensure all components are < 70 lines". 
-// The hero section in destinations.astro is small (~12 lines). I can keep it or extract it.
-// Let's extract it to `DestinationsHero.astro` to be safe and consistent.
 import DestinationsHero from '../components/destinations/DestinationsHero.astro';
 ---
 

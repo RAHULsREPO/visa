@@ -32,6 +32,17 @@ const {
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
+		<link rel="preconnect" href="https://www.google-analytics.com" />
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18048397050"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'AW-18048397050');
+		</script>
 		
 		<SEO 
 			title={title}
@@ -41,7 +52,7 @@ const {
 		/>
 		<StructuredData />
 	</head>
-	<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-accent selection:text-white">
+	<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-accent selection:text-white overflow-x-hidden">
 		<slot />
 	</body>
 </html>
