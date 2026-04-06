@@ -5,15 +5,15 @@ const heroImages = [
   "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop"
 ];
 ---
-<section class="relative py-16 md:py-20 min-h-[400px] text-white overflow-hidden">
+<section class="relative section-pad min-h-[420px] overflow-hidden text-white">
   <!-- Background Image Carousel -->
-  <div class="absolute inset-0 z-0" id="destinations-carousel">
+  <div class="absolute inset-0 z-0" data-auto-carousel data-interval="5000">
     {heroImages.map((image, index) => (
       <img 
         src={image}
         alt={`Destinations ${index + 1}`}
-        class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-        data-slide={index}
+        class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+        data-carousel-slide
       />
     ))}
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
@@ -23,26 +23,9 @@ const heroImages = [
     <span class="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold tracking-widest uppercase">
       Explore The World
     </span>
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-tight drop-shadow-2xl">Our Destinations</h1>
+    <h1 class="hero-headline drop-shadow-2xl">Our Destinations</h1>
     <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
       Explore handpicked packages for the most beautiful places in India and around the world.
     </p>
   </div>
 </section>
-
-<script>
-  const slides = document.querySelectorAll('#destinations-carousel img');
-  let currentSlide = 0;
-
-  function nextSlide() {
-    slides[currentSlide].classList.remove('opacity-100');
-    slides[currentSlide].classList.add('opacity-0');
-    
-    currentSlide = (currentSlide + 1) % slides.length;
-    
-    slides[currentSlide].classList.remove('opacity-0');
-    slides[currentSlide].classList.add('opacity-100');
-  }
-
-  setInterval(nextSlide, 5000);
-</script>

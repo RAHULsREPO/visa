@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
 import Hero from '../components/home/Hero.astro';
+import VisaPackages from '../components/home/VisaPackages.astro';
 import PopularDestinations from '../components/home/PopularDestinations.astro';
 import WhyChooseUs from '../components/home/WhyChooseUs.astro';
 import Testimonials from '../components/home/Testimonials.astro';
@@ -14,8 +15,10 @@ import Testimonials from '../components/home/Testimonials.astro';
 	keywords="travel agency kerala, visa consultancy ernakulam, holiday packages india, international travel, explore packages, personalized travel, tour packages kerala, visa services"
 >
 	<Header />
-	<main>
+	<main class="relative overflow-x-clip">
+		<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_12%_18%,rgba(241,199,91,0.3),transparent_42%),radial-gradient(circle_at_88%_4%,rgba(38,99,184,0.2),transparent_38%)]"></div>
 		<Hero />
+		<VisaPackages />
 		<PopularDestinations />
 		<WhyChooseUs />
 		<Testimonials />

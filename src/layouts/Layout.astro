@@ -43,6 +43,41 @@ const {
 			gtag('js', new Date());
 			gtag('config', 'AW-18048397050');
 		</script>
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const carousels = document.querySelectorAll('[data-auto-carousel]');
+				const cleanupFns = [];
+
+				carousels.forEach(carousel => {
+					const slides = carousel.querySelectorAll('[data-carousel-slide]');
+					if (slides.length < 2) {
+						return;
+					}
+
+					let currentSlide = 0;
+					const intervalMs = Number(carousel.getAttribute('data-interval') || '5000');
+
+					const nextSlide = () => {
+						slides[currentSlide].classList.remove('opacity-100');
+						slides[currentSlide].classList.add('opacity-0');
+						currentSlide = (currentSlide + 1) % slides.length;
+						slides[currentSlide].classList.remove('opacity-0');
+						slides[currentSlide].classList.add('opacity-100');
+					};
+
+					const timerId = setInterval(nextSlide, intervalMs);
+					cleanupFns.push(() => clearInterval(timerId));
+				});
+
+				window.addEventListener(
+					'pagehide',
+					() => {
+						cleanupFns.forEach(cleanup => cleanup());
+					},
+					{ once: true }
+				);
+			});
+		</script>
 		
 		<SEO 
 			title={title}
@@ -52,7 +87,7 @@ const {
 		/>
 		<StructuredData />
 	</head>
-	<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+	<body class="text-slate-900 font-sans antialiased selection:bg-accent selection:text-slate-900 overflow-x-hidden">
 		<slot />
 	</body>
 </html>

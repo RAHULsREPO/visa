@@ -14,7 +14,7 @@ const normalizedTitle = title.trim();
 const fullTitle = normalizedTitle.toLowerCase().includes(brandName.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${brandName}`;
-const defaultOgImage = `${siteUrl}/assets/images/p0ddh98z-YX4xrw9XvMiZM557.jpeg`;
+const defaultOgImage = `${siteUrl}/assets/images/brand-og-image.jpeg`;
 const resolvedCanonical = canonicalURL ? new URL(canonicalURL, siteUrl).toString() : new URL(Astro.url.pathname, siteUrl).toString();
 const resolvedOgImage = ogImage ? new URL(ogImage, siteUrl).toString() : defaultOgImage;
 ---

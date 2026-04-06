@@ -5,14 +5,14 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#1d4ed8',
-                    light: '#2563eb',
-                    dark: '#1e3a8a',
+                    DEFAULT: '#15459a',
+                    light: '#2663b8',
+                    dark: '#1e3a6d',
                 },
                 accent: {
-                    DEFAULT: '#d97706', // Dark Yellow/Amber from logo (amber-600)
-                    light: '#f59e0b',   // Lighter gold for highlights
-                    dark: '#b45309',    // Darker amber
+                    DEFAULT: '#f1c75b',
+                    light: '#f6d67a',
+                    dark: '#c9962b',
                 },
             },
             fontFamily: {

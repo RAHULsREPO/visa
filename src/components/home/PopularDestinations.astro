@@ -41,21 +41,23 @@ const destinations = [
 ];
 ---
 
-<section class="py-16 bg-white">
+<section id="holiday-packages" class="section-pad relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_45%,#fffaf0_100%)]">
+  <div class="pointer-events-none absolute -left-16 top-12 h-48 w-48 rounded-full bg-primary/10 blur-3xl"></div>
+  <div class="pointer-events-none absolute -right-20 bottom-0 h-56 w-56 rounded-full bg-accent/25 blur-3xl"></div>
   <div class="container mx-auto px-4">
-    <div class="text-center mb-12 max-w-3xl mx-auto">
-      <span class="inline-block py-2 px-4 rounded-full bg-primary/10 text-primary font-semibold text-sm tracking-widest uppercase mb-4">
-        Popular Destinations
+    <div class="text-center mb-12 max-w-3xl mx-auto relative z-10">
+      <span class="inline-flex items-center py-2 px-4 rounded-full border border-primary/20 bg-white text-primary font-semibold text-xs tracking-[0.16em] uppercase mb-4">
+        Holiday Packages
       </span>
-      <h2 class="text-4xl md:text-5xl font-display font-bold text-primary tracking-tight leading-tight mb-4">
-        Explore the World
+      <h2 class="text-4xl md:text-5xl font-display font-bold text-primary-dark tracking-tight leading-tight mb-4">
+        Explore Curated Holiday Packages
       </h2>
       <p class="text-lg text-slate-600 leading-relaxed">
-        Discover handpicked destinations that promise unforgettable experiences
+        Handpicked destinations with flexible planning support, clear pricing, and seamless coordination.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {destinations.map((dest) => (
         <DestinationCard {...dest} />
       ))}

@@ -1,37 +1,81 @@
 ---
+const heroSlides = [
+  {
+    src: '/assets/images/packages/japan-visa-package.jpg',
+    alt: 'Japan visa package offer by True Gate Visa'
+  },
+  {
+    src: '/assets/images/packages/usa-visa-package.jpg',
+    alt: 'America visa package offer by True Gate Visa'
+  },
+  {
+    src: '/assets/images/packages/ireland-visa-package.jpg',
+    alt: 'Ireland visa package offer by True Gate Visa'
+  }
+];
 ---
-<section class="relative min-h-[500px] md:h-[80vh] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-  <!-- Background Image -->
-  <div class="absolute inset-0 z-0">
-    <img 
-      src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2000&auto=format&fit=crop" 
-      alt="Travel Background" 
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent"></div>
+<section class="relative isolate overflow-hidden">
+  <div class="absolute inset-0 -z-10" data-auto-carousel data-interval="4200">
+    {heroSlides.map((slide, index) => (
+      <img
+        src={slide.src}
+        alt={slide.alt}
+        class={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+        data-carousel-slide
+      />
+    ))}
+    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/55"></div>
   </div>
 
-  <!-- Content -->
-  <div class="relative z-10 container mx-auto px-4 py-12 md:py-0 text-center text-white space-y-6 max-w-4xl">
-    <span class="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up">
-      Your Route To Adventure
-    </span>
-    <h1 class="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-none drop-shadow-2xl mb-6">
-      Explore The World <br/>
-      <span class="bg-gradient-to-r from-accent via-accent-light to-accent bg-clip-text text-transparent">With Confidence</span>
-    </h1>
-    <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-lg">
-      We create personalized travel experiences in India and internationally, 
-      ensuring smooth and memorable journeys tailored to your needs.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-      <a href="/destinations" class="px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-accent-light transition-all transform hover:scale-105 shadow-xl">
-        Explore Packages
-      </a>
-      <a href="/contact" class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-full hover:bg-white/20 transition-all">
-        Plan Your Trip
-      </a>
+  <div class="container mx-auto grid min-h-[560px] items-center gap-10 px-4 py-14 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:py-18 lg:py-20">
+    <div class="relative z-10 text-white">
+      <span class="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
+        Trusted Visa & Holiday Experts
+      </span>
+
+      <h1 class="mt-6 text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
+        Beautiful Journeys,
+        <span class="block bg-gradient-to-r from-accent-light via-accent to-[#ffe7a9] bg-clip-text text-transparent">Zero Stress Planning</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
+        From visa guidance to curated holiday packages, True Gate Visa helps you travel smarter with end-to-end support from Ernakulam.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a href="/#holiday-packages" class="btn-primary px-8">
+          View Holiday Packages
+        </a>
+        <a href="/contact" class="btn-secondary border-white/35 bg-white/10 px-8">
+          Talk To An Expert
+        </a>
+      </div>
+
+      <div class="mt-8 grid max-w-lg grid-cols-3 gap-3 text-center">
+        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
+          <p class="text-xl font-extrabold">1K+</p>
+          <p class="text-xs uppercase tracking-wider text-white/80">Happy Travelers</p>
+        </div>
+        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
+          <p class="text-xl font-extrabold">24/7</p>
+          <p class="text-xs uppercase tracking-wider text-white/80">Support</p>
+        </div>
+        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
+          <p class="text-xl font-extrabold">Fast</p>
+          <p class="text-xs uppercase tracking-wider text-white/80">Visa Guidance</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 hidden md:block">
+      <div class="mx-auto max-w-md rounded-3xl border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-accent-light">Why Travelers Pick Us</p>
+        <ul class="mt-5 space-y-3 text-white/90">
+          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Personalized itinerary based on your budget</li>
+          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Transparent process for visa documents</li>
+          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Fast response on WhatsApp and call support</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
