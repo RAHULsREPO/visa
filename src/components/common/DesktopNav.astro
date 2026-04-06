@@ -1,23 +1,16 @@
 ---
+import { desktopNavLinks } from '../../data/navigation';
+
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) => {
 	if (path === '/' && currentPath === '/') return true;
 	if (path !== '/' && currentPath.startsWith(path)) return true;
 	return false;
 };
-
-const navLinks = [
-	{ href: '/', label: 'Home' },
-	{ href: '/#visa-packages', label: 'Visa Packages' },
-	{ href: '/#holiday-packages', label: 'Holiday Packages' },
-	{ href: '/services', label: 'Services' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' }
-];
 ---
 
 <nav class="hidden md:flex items-center gap-8">
-	{navLinks.map(link => {
+	{desktopNavLinks.map(link => {
 		const isAnchorLink = link.href.includes('#');
 		const active = isAnchorLink ? false : isActive(link.href);
 

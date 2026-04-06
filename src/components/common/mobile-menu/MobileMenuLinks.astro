@@ -1,0 +1,17 @@
+---
+import type { NavLink } from '../../../data/navigation';
+
+interface Props {
+  links: NavLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="flex-1 overflow-y-auto px-4 py-6">
+  {links.map((link) => (
+    <a href={link.href} class="block rounded px-3 py-3 text-lg font-bold text-slate-900 transition-colors hover:bg-slate-100 hover:text-primary focus-visible:bg-slate-100">
+      {link.label}
+    </a>
+  ))}
+</div>

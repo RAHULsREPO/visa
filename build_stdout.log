@@ -1,0 +1,40 @@
+
+> truegate-visa@0.0.1 build
+> astro build
+
+[2m00:45:36[22m [34m[content][39m Syncing content
+[2m00:45:36[22m [34m[content][39m Synced content
+[2m00:45:36[22m [34m[types][39m Generated [2m280ms[22m
+[2m00:45:36[22m [34m[build][39m output: [34m"static"[39m
+[2m00:45:36[22m [34m[build][39m mode: [34m"static"[39m
+[2m00:45:36[22m [34m[build][39m directory: [34mC:\Users\niveus\visa\dist\[39m
+[2m00:45:36[22m [34m[build][39m Collecting build info...
+[2m00:45:36[22m [34m[build][39m [32m✓ Completed in 424ms.[39m
+[2m00:45:36[22m [34m[build][39m Building static entrypoints...
+[2m00:46:02[22m [34m[vite][39m [32m✓ built in 25.91s[39m
+[2m00:46:02[22m [34m[build][39m [32m✓ Completed in 26.18s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m00:46:02[22m [34m[vite][39m transforming...
+[2m00:46:10[22m [34m[vite][39m [32m✓[39m 21 modules transformed.
+[2m00:46:11[22m [34m[vite][39m rendering chunks...
+[2m00:46:11[22m [34m[vite][39m computing gzip size...
+[2m00:46:11[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.T9fhd2RU.js  [39m[1m[2m194.63 kB[22m[1m[22m[2m │ gzip: 60.99 kB[22m
+[2m00:46:11[22m [34m[vite][39m [32m✓ built in 8.55s[39m
+
+[42m[30m generating static routes [39m[49m
+[2m00:46:12[22m [32m▶[39m src/pages/about.astro
+[2m00:46:12[22m   [34m└─[39m [2m/about/index.html[22m [2m(+214ms)[22m 
+[2m00:46:12[22m [32m▶[39m src/pages/contact.astro
+[2m00:46:12[22m   [34m└─[39m [2m/contact/index.html[22m [2m(+51ms)[22m 
+[2m00:46:12[22m [32m▶[39m src/pages/destinations.astro
+[2m00:46:12[22m   [34m└─[39m [2m/destinations/index.html[22m [2m(+111ms)[22m 
+[2m00:46:13[22m [32m▶[39m src/pages/services.astro
+[2m00:46:13[22m   [34m└─[39m [2m/services/index.html[22m [2m(+48ms)[22m 
+[2m00:46:13[22m [32m▶[39m src/pages/index.astro
+[2m00:46:13[22m   [34m└─[39m [2m/index.html[22m [2m(+49ms)[22m 
+[2m00:46:13[22m [32m✓ Completed in 1.91s.
+[39m
+[2m00:46:13[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+[2m00:46:13[22m [34m[build][39m 5 page(s) built in [1m37.81s[22m
+[2m00:46:13[22m [34m[build][39m [1mComplete![22m
