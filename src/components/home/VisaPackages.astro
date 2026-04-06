@@ -53,8 +53,8 @@ const slides = [
       </p>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-stretch">
-      <div class="grid gap-4 lg:order-1">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-stretch">
+      <div class="order-2 grid gap-4 lg:order-1 min-w-0">
         {packagePlans.map((plan) => (
           <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-lg shadow-slate-200/60 backdrop-blur-sm">
             <h3 class="font-heading text-xl font-extrabold text-slate-900">{plan.name}</h3>
@@ -72,11 +72,11 @@ const slides = [
         ))}
       </div>
 
-      <div class="rounded-3xl border border-white/70 bg-white/80 p-4 shadow-[0_25px_80px_-30px_rgba(15,23,42,0.35)] backdrop-blur lg:order-2 lg:h-full">
-        <div class="group relative overflow-hidden rounded-2xl lg:h-full" data-package-slider>
+      <div class="order-1 rounded-3xl border border-white/70 bg-white/80 p-4 shadow-[0_25px_80px_-30px_rgba(15,23,42,0.35)] backdrop-blur lg:order-2 lg:h-full min-w-0">
+        <div class="group relative overflow-hidden rounded-2xl aspect-[16/9] sm:aspect-[16/10] lg:aspect-auto lg:h-full w-full" data-package-slider>
           <div class="flex transition-transform duration-700 ease-out lg:h-full" data-slider-track>
             {slides.map((slide) => (
-              <article class="min-w-full lg:h-full">
+              <article class="w-full flex-none lg:h-full">
                 <img src={slide.src} alt={slide.alt} class="h-[280px] w-full object-cover md:h-[430px] lg:h-full" loading="lazy" />
               </article>
             ))}
