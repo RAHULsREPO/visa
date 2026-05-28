@@ -1,31 +1,36 @@
 ---
-import { Map, Users, CheckCircle, ShieldCheck, Target, ArrowRight } from 'lucide-react';
+import { UserCheck, FileText, Users, ShieldCheck, GraduationCap, RefreshCw, ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    title: "Personalized Itinerary Planning",
-    desc: "Tell us your travel goal - we’ll turn it into a day-by-day plan that fits your style, pace, and budget.",
-    icon: Map
+    title: "Comprehensive Profile Assessment",
+    desc: "We analyze your academic, financial, and travel background, identifying visa success ratios and designing customized immigration/visa filing strategies.",
+    icon: UserCheck
   },
   {
-    title: "Family & Group Trips",
-    desc: "Planning for more than one? No worries - we handle logistics, stays, and all the what-ifs, so you just focus on enjoying.",
+    title: "Document Drafting & Cover Letters",
+    desc: "Meticulous drafting of Statements of Purpose (SOP), family tie explanations, corporate sponsor letters, and structured cover letters that satisfy consular officers.",
+    icon: FileText
+  },
+  {
+    title: "Spousal & Family Reunification",
+    desc: "Specialized assistance for dependent visa classes, spousal work permits, and family reunion filings including marriage registry translation audits.",
     icon: Users
   },
   {
-    title: "Hassle-Free Booking Support",
-    desc: "Flights, hotels, local transport, guides - we handle it all.",
-    icon: CheckCircle
-  },
-  {
-    title: "Trusted Vendor Network",
-    desc: "We work with verified local partners across the world - so your trip is safe, smooth, and scam-free.",
+    title: "Apostille & Legalization",
+    desc: "End-to-end guidance for certificate attestation (HRD, MEA, Apostille) and embassy legalization, ensuring your foreign documentation is legally recognized.",
     icon: ShieldCheck
   },
   {
-    title: "Goal-Focused Planning",
-    desc: "Want to see the Eiffel Tower by 30? Chase waterfalls in Bali? Let’s tick those boxes. One by one.",
-    icon: Target
+    title: "Interview Prep & Mock Practice",
+    desc: "One-on-one preparation sessions with mock visa interviews, custom question dossiers, consular checklist reviews, and body language/anxiety coaching.",
+    icon: GraduationCap
+  },
+  {
+    title: "Refusal Analysis & Re-filing",
+    desc: "In-depth review of visa rejections. We analyze GCMS/CAIPS notes, address documentation gaps, and draft detailed correction letters for successful re-application.",
+    icon: RefreshCw
   }
 ];
 ---
@@ -34,21 +39,23 @@ const services = [
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map(service => (
-        <div class="group p-8 rounded-2xl bg-white border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-          <div class="w-16 h-16 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-            <service.icon size={32} />
+        <div class="group p-8 rounded-2xl bg-white border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+              <service.icon size={32} />
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-primary mb-4 group-hover:text-accent transition-colors tracking-tight">{service.title}</h3>
+            <p class="text-slate-600 leading-relaxed text-sm md:text-base">{service.desc}</p>
           </div>
-          <h3 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-4 group-hover:text-accent transition-colors tracking-tight">{service.title}</h3>
-          <p class="text-slate-600 leading-relaxed">{service.desc}</p>
         </div>
       ))}
       
       <!-- Custom "Call to Action" Card -->
       <div class="group p-8 rounded-2xl bg-primary text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-center text-center">
-         <h3 class="text-2xl font-bold mb-4">Ready to Plan?</h3>
-         <p class="text-white/80 mb-8">Contact us today to start your journey.</p>
+         <h3 class="text-2xl font-bold mb-4">Start Your Filing Today</h3>
+         <p class="text-white/80 mb-8">Schedule a priority callback with our senior visa filing team in Ernakulam.</p>
          <a href="/contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-full hover:bg-white transition-colors">
-           Get Started <ArrowRight size={18} />
+           Get Assessment <ArrowRight size={18} />
          </a>
       </div>
 

@@ -9,7 +9,7 @@ interface Props {
 
 const { title, description, keywords, ogImage, canonicalURL } = Astro.props;
 const siteUrl = 'https://truegatevisa.com';
-const brandName = 'True Gate Visa';
+const brandName = 'TrueGate Visa';
 const normalizedTitle = title.trim();
 const fullTitle = normalizedTitle.toLowerCase().includes(brandName.toLowerCase())
   ? normalizedTitle
@@ -28,7 +28,7 @@ const resolvedOgImage = ogImage ? new URL(ogImage, siteUrl).toString() : default
 <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="language" content="English" />
 <meta name="author" content={brandName} />
-<meta name="theme-color" content="#1d4ed8" />
+<meta name="theme-color" content="#15459a" />
 <meta name="format-detection" content="telephone=no" />
 
 <!-- Canonical URL -->
@@ -42,7 +42,7 @@ const resolvedOgImage = ogImage ? new URL(ogImage, siteUrl).toString() : default
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={resolvedOgImage} />
-<meta property="og:image:alt" content="True Gate Visa travel and visa services" />
+<meta property="og:image:alt" content="TrueGate Visa - Premium Visa & Immigration Consultancy" />
 <meta property="og:site_name" content={brandName} />
 <meta property="og:locale" content="en_US" />
 
@@ -52,10 +52,10 @@ const resolvedOgImage = ogImage ? new URL(ogImage, siteUrl).toString() : default
 <meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={resolvedOgImage} />
-<meta property="twitter:image:alt" content="True Gate Visa travel and visa services" />
+<meta property="twitter:image:alt" content="TrueGate Visa - Premium Visa & Immigration Consultancy" />
 
 <!-- Geo Tags for Local SEO -->
 <meta name="geo.region" content="IN-KL" />
 <meta name="geo.placename" content="Ernakulam" />
-<meta name="geo.position" content="9.9312;76.2673" />
-<meta name="ICBM" content="9.9312, 76.2673" />
+<meta name="geo.position" content="9.9727;76.2854" />
+<meta name="ICBM" content="9.9727, 76.2854" />

@@ -1,0 +1,338 @@
+---
+import { FileText, ArrowRight } from 'lucide-react';
+
+const destinations = [
+  { code: 'schengen', name: 'Schengen Area (Europe)' },
+  { code: 'canada', name: 'Canada' },
+  { code: 'uk', name: 'United Kingdom' },
+  { code: 'usa', name: 'United States' },
+  { code: 'australia', name: 'Australia' },
+  { code: 'other', name: 'Other (Specify Country)' }
+];
+
+const visaTypes = [
+  { code: 'study', name: 'Student Visa (Education)' },
+  { code: 'tourism', name: 'Tourist / Visitor Visa' },
+  { code: 'work', name: 'Work / Skilled Worker Visa' }
+];
+---
+
+<section id="eligibility-checker" class="section-pad relative overflow-hidden bg-slate-900 text-white">
+  <!-- Glowing decorative blobs -->
+  <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-primary/20 blur-3xl"></div>
+  <div class="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-accent/15 blur-3xl"></div>
+
+  <div class="container relative z-10 mx-auto px-4">
+    <div class="mb-14 text-center">
+      <span class="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent-light backdrop-blur">
+        Interactive Eligibility Tool
+      </span>
+      <h2 class="mt-4 font-heading text-3xl font-black leading-tight text-white md:text-5xl">
+        Check Your Visa Eligibility Instantly
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+        Select your desired country and visa category below. Our database will render the key criteria checklist immediately.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+      <!-- Selector controls (Left side) -->
+      <div class="reveal-left lg:col-span-5 flex flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-8">
+        <div>
+          <h3 class="font-heading text-xl font-bold text-white mb-6">Select Assessment Profile</h3>
+          
+          <div class="space-y-6">
+            <div>
+              <label for="checker-destination" class="block text-sm font-semibold text-slate-300 mb-2">Destination Country</label>
+              <select id="checker-destination" class="w-full rounded-xl border border-white/20 bg-slate-800/90 px-4 py-3.5 text-base text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent">
+                {destinations.map((dest) => (
+                  <option value={dest.code}>{dest.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <!-- Other country input (hidden by default) -->
+            <div id="other-country-container" class="hidden mt-4 transition-all duration-300">
+              <label for="checker-other-country" class="block text-sm font-semibold text-slate-300 mb-2">Specify Destination Country</label>
+              <input 
+                type="text" 
+                id="checker-other-country" 
+                placeholder="e.g. New Zealand, UAE, Singapore" 
+                class="w-full rounded-xl border border-white/20 bg-slate-800/90 px-4 py-3.5 text-base text-white placeholder-slate-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              />
+            </div>
+
+            <div>
+              <label for="checker-visatype" class="block text-sm font-semibold text-slate-300 mb-2">Visa Class</label>
+              <select id="checker-visatype" class="w-full rounded-xl border border-white/20 bg-slate-800/90 px-4 py-3.5 text-base text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent">
+                {visaTypes.map((type) => (
+                  <option value={type.code}>{type.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-white/10 pt-6">
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Need an official, detailed analysis? Get a free phone evaluation with our senior filing counselors.
+          </p>
+          <a
+            id="eligibility-whatsapp-btn"
+            href="https://wa.me/919720409020?text=Hi%20TrueGate%20Visa,%20I%20would%20like%20to%20do%20a%20detailed%20visa%20eligibility%20assessment."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2"
+          >
+            <span>Request Free Evaluation</span>
+            <ArrowRight size={18} />
+          </a>
+        </div>
+      </div>
+
+      <!-- Checklist render (Right side) -->
+      <div class="reveal-right lg:col-span-7 rounded-3xl border border-white/15 bg-slate-950 p-6 md:p-8 relative min-h-[380px]">
+        <div class="flex items-center gap-3 border-b border-white/10 pb-5">
+          <FileText className="text-accent" size={24} />
+          <div>
+            <h4 class="font-heading text-lg font-bold text-white" id="checklist-title">Schengen Area — Student Visa</h4>
+            <p class="text-xs text-slate-400">Core parameters & required documentation checklist</p>
+          </div>
+        </div>
+
+        <!-- Render list -->
+        <div class="mt-6 space-y-5" id="checklist-items">
+          <!-- Dynamic items populated via JS -->
+        </div>
+
+        <!-- Warning disclaimer -->
+        <div class="mt-8 rounded-xl bg-white/5 border border-white/10 p-4 text-xs text-slate-400 leading-relaxed">
+          <strong>Note:</strong> Consular requirements vary depending on applicant profile, background, and financial stability. TrueGate Visa offers meticulous file preparation to ensure all consular checklists are strictly met.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const checklists = {
+    schengen: {
+      study: [
+        'Official University Admission Letter / Letter of Acceptance',
+        'Proof of financial resources (e.g. Blocked Account with approx. €11,900 or Sponsor Declaration)',
+        'Schengen-compliant Travel Health Insurance with minimum €30,000 cover',
+        'Academic certificates, transcript sheets, and language proficiency proof',
+        'Motivation Letter detailing academic purposes and intent to return'
+      ],
+      tourism: [
+        'Schengen Travel Health Insurance (€30,000 minimum cover, including repatriation)',
+        'Fully booked day-by-day travel itinerary with accommodation vouchers',
+        'Bank Statement (past 6 months showing strong transactions & balance)',
+        'Income Tax Returns (ITR-V) for the last 3 assessment years',
+        'No Objection Certificate (NOC) from employer or school enrollment proof'
+      ],
+      work: [
+        'Signed Employment Contract or detailed Job Offer Letter',
+        'Federal Employment Agency Approval (e.g. Bundesagentur für Arbeit in Germany)',
+        'Recognition of academic or vocational qualifications (e.g., Anabin check)',
+        'Detailed job description and employer cover letter',
+        'Valid professional certificates and CV'
+      ]
+    },
+    canada: {
+      study: [
+        'Letter of Acceptance (LOA) from a Designated Learning Institution (DLI)',
+        'Guaranteed Investment Certificate (GIC) of CAD 20,635 as proof of living expenses',
+        'Provincial Attestation Letter (PAL) (if applicable)',
+        'Detailed Statement of Purpose (SOP) explaining study goals and home ties',
+        'IELTS/PTE academic exam score certificate'
+      ],
+      tourism: [
+        'Recent bank statements showing sufficient funds for stay (past 6 months)',
+        'Ties to home country proof (Property documentation, employment contract, family bonds)',
+        'Custom purpose-of-travel explanation letter and detailed schedule',
+        'Travel history documents and identity proofs',
+        'Employment letter & salary slips (last 3 months)'
+      ],
+      work: [
+        'Labour Market Impact Assessment (LMIA) positive decision copy',
+        'Signed job offer letter from Canadian employer',
+        'Proof of matching employment experience (reference letters & pay stub history)',
+        'Certificates of qualification/licensure (if in a regulated trade)',
+        'Valid IELTS General score certificate'
+      ]
+    },
+    uk: {
+      study: [
+        'Confirmation of Acceptance for Studies (CAS) reference number from Sponsor',
+        'Proof of funds for course fees & living costs held in bank for at least 28 consecutive days',
+        'Tuberculosis (TB) test certificate from a clinic approved by the Home Office',
+        'Academic credentials and English language proficiency certificate',
+        'Consent letter from parents if applicant is under 18'
+      ],
+      tourism: [
+        'Bank statements showing source of savings and regular income (last 6 months)',
+        'Letter from employer detailing role, salary, and authorized leave approval',
+        'Accommodation details or letter from sponsor inviting you to reside in the UK',
+        'A comprehensive itinerary showing intended dates and destinations',
+        'Tax filing files showing regular income declaration'
+      ],
+      work: [
+        'Valid Certificate of Sponsorship (CoS) reference code from licensed employer',
+        'Detailed job description, SOC code, and minimum salary verification',
+        'Proof of English proficiency (SELT test at level B1 or degree taught in English)',
+        'Personal savings proof (held for 28 days) or employer certification of maintenance',
+        'Tuberculosis (TB) test clearance (if applying from India)'
+      ]
+    },
+    usa: {
+      study: [
+        'Form I-20 issued by SEVP-certified institution',
+        'SEVIS I-901 fee payment receipt',
+        'DS-160 Visa Application confirmation page barcode printout',
+        'Standardized test scores (GRE/GMAT/SAT) and TOEFL/IELTS/Duolingo scores',
+        'Sponsor financial affidavits, bank statements, and tax returns'
+      ],
+      tourism: [
+        'Form DS-160 submission confirmation page',
+        'Interview Appointment Confirmation Letter',
+        'Valid bank balance and income statements showing financial capability',
+        'Documented evidence of strong social, economic, and family ties to India',
+        'Cover letter outlining the visitor itinerary and details of US hosts (if any)'
+      ],
+      work: [
+        'Form I-797 (Notice of Action) showing Petition I-129 approval',
+        'Labor Condition Application (LCA) certified by Department of Labor',
+        'DS-160 confirmation and visa interview schedule',
+        'Degree certificates, transcript papers, and detailed resume',
+        'Employer supporting letter stating job duties, contract duration, and salary'
+      ]
+    },
+    australia: {
+      study: [
+        'Confirmation of Enrolment (CoE) issued by registered CRICOS provider',
+        'Genuine Temporary Entrant (GTE) written statement with supporting assets/bonds',
+        'Overseas Student Health Cover (OSHC) policy number and validity proof',
+        'IELTS, PTE, or TOEFL test results sheet',
+        'Evidence of sufficient funds for annual tuition fees, travel, and AUD 24,505/yr living cost'
+      ],
+      tourism: [
+        'Bank balance certificate and transaction sheets for past 6 months',
+        'Detailed itinerary of sights, activities, and internal travel tickets',
+        'Employment status card, salary slip files, and tax records',
+        'Filing proof for leave of absence from office or college',
+        'Passport identity pages and notarized ID credentials'
+      ],
+      work: [
+        'Skill Assessment Certificate from assessing authority (e.g. ACS, VETASSESS)',
+        'State/Territory nomination or employer nomination certificate',
+        'Expression of Interest (EOI) selection invite letter',
+        'Valid English competency score sheets (IELTS/PTE)',
+        'Employment reference letters, pay slips, and tax files for past experience'
+      ]
+    },
+    other: {
+      study: [
+        'Official Admission / Acceptance Letter from the destination institution',
+        'Proof of financial capacity to cover tuition fees & living expenses',
+        'Valid passport and identity documents',
+        'Academic transcripts and certificate credentials',
+        'Travel insurance and medical clearance requirements'
+      ],
+      tourism: [
+        'Proof of financial sufficiency (recent bank statements & tax filings)',
+        'Detailed travel itinerary and hotel/flight reservations',
+        'Proof of employment or business ownership in home country',
+        'Purpose of travel cover letter or invitation from host',
+        'No Objection Certificate (NOC) from employer or school'
+      ],
+      work: [
+        'Valid job offer or employment contract from the foreign employer',
+        'Work permit approval or labor market clearance document',
+        'Proof of matching qualifications, resume, and experience letters',
+        'Medical clearances and police certificate checks (if required)',
+        'Valid passport with sufficient travel validity'
+      ]
+    }
+  };
+
+  const initEligibilityChecker = () => {
+    const destSelect = document.getElementById('checker-destination');
+    const typeSelect = document.getElementById('checker-visatype');
+    const titleText = document.getElementById('checklist-title');
+    const listItems = document.getElementById('checklist-items');
+    const waBtn = document.getElementById('eligibility-whatsapp-btn');
+    const otherCountryContainer = document.getElementById('other-country-container');
+    const otherCountryInput = document.getElementById('checker-other-country');
+
+    if (!destSelect || !typeSelect || !titleText || !listItems) return;
+
+    function updateChecklist() {
+      const dest = destSelect.value;
+      const type = typeSelect.value;
+      const isOther = dest === 'other';
+
+      // Show/hide other country box
+      if (otherCountryContainer) {
+        if (isOther) {
+          otherCountryContainer.classList.remove('hidden');
+        } else {
+          otherCountryContainer.classList.add('hidden');
+        }
+      }
+
+      // Determine display destination name
+      let destName = '';
+      if (isOther) {
+        const customName = otherCountryInput ? otherCountryInput.value.trim() : '';
+        destName = customName || 'Specified Country';
+      } else {
+        destName = destSelect.options[destSelect.selectedIndex].text;
+      }
+
+      const typeName = typeSelect.options[typeSelect.selectedIndex].text;
+      titleText.textContent = `${destName} — ${typeName}`;
+
+      // Update WhatsApp URL query text
+      if (waBtn) {
+        const textMessage = `Hi TrueGate Visa, I checked the eligibility checker for ${destName} (${typeName}) and would like to get a free detailed assessment for my profile.`;
+        const text = encodeURIComponent(textMessage);
+        waBtn.setAttribute('href', `https://wa.me/919720409020?text=${text}`);
+      }
+
+      // Populate Items
+      const list = checklists[dest]?.[type] || [];
+      listItems.innerHTML = '';
+
+      if (list.length === 0) {
+        listItems.innerHTML = '<p class="text-slate-400 text-sm">No checklist matches this configuration. Contact our specialists for custom assistance.</p>';
+        return;
+      }
+
+      list.forEach((item) => {
+        const li = document.createElement('div');
+        li.className = 'flex items-start gap-3.5 rounded-xl border border-white/5 bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/10';
+        li.innerHTML = `
+          <div class="mt-0.5 grid h-5 w-5 place-items-center rounded-md bg-accent/20 text-accent flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span class="text-sm font-medium text-slate-200 leading-relaxed">${item}</span>
+        `;
+        listItems.appendChild(li);
+      });
+    }
+
+    // Event listeners
+    destSelect.addEventListener('change', updateChecklist);
+    typeSelect.addEventListener('change', updateChecklist);
+    if (otherCountryInput) {
+      otherCountryInput.addEventListener('input', updateChecklist);
+    }
+
+    // Run first layout
+    updateChecklist();
+  };
+
+  document.addEventListener('DOMContentLoaded', initEligibilityChecker);
+  document.addEventListener('astro:page-load', initEligibilityChecker);
+</script>

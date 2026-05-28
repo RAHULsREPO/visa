@@ -1,4 +1,4 @@
-# 🌍 True Gate Visa - Travel & Visa Services
+﻿# ðŸŒ TrueGate Visa - Travel & Visa Services
 
 > **High-performance static website built with Astro 5 + Tailwind CSS v4**  
 > Delivering personalized travel experiences and visa consultancy services from Ernakulam, Kerala.
@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Table of Contents
+## ðŸ“‹ Table of Contents
 - [Overview](#-overview)
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
@@ -22,9 +22,9 @@
 
 ---
 
-## 🎯 Overview
+## ðŸŽ¯ Overview
 
-**True Gate Visa** is a modern, SEO-optimized static website for a travel agency offering:
+**TrueGate Visa** is a modern, SEO-optimized static website for a travel agency offering:
 - International & domestic travel packages
 - Professional visa consultancy
 - Personalized holiday planning services
@@ -34,35 +34,35 @@ Built with **static site generation (SSG)** using Astro for maximum performance,
 
 ---
 
-## ✨ Key Features
+## âœ¨ Key Features
 
-### 🚀 Performance-First Architecture
-- ⚡ **Near-zero JavaScript** - Static HTML with minimal client-side JS
-- 🎨 **Optimized Images** - WebP/AVIF with lazy loading
-- 📦 **Tailwind CSS v4** - Minimal CSS footprint with JIT compilation
-- 🔥 **Perfect Lighthouse Scores** - 100/100 Performance, Accessibility, Best Practices, SEO
+### ðŸš€ Performance-First Architecture
+- âš¡ **Near-zero JavaScript** - Static HTML with minimal client-side JS
+- ðŸŽ¨ **Optimized Images** - WebP/AVIF with lazy loading
+- ðŸ“¦ **Tailwind CSS v4** - Minimal CSS footprint with JIT compilation
+- ðŸ”¥ **Perfect Lighthouse Scores** - 100/100 Performance, Accessibility, Best Practices, SEO
 
-### 🧩 Modular Component Design
-- 📁 **Component-driven architecture** - Reusable, maintainable Astro components
-- 🎯 **Single Responsibility** - Each component <70 lines for clarity
-- 🔄 **Separation of Concerns** - Layout → Page → Component hierarchy
+### ðŸ§© Modular Component Design
+- ðŸ“ **Component-driven architecture** - Reusable, maintainable Astro components
+- ðŸŽ¯ **Single Responsibility** - Each component <70 lines for clarity
+- ðŸ”„ **Separation of Concerns** - Layout â†’ Page â†’ Component hierarchy
 
-### 🔍 SEO Excellence
-- 📊 **Structured Data** - JSON-LD schema markup for rich search results
-- 🗺️ **Dynamic Sitemap** - Auto-generated XML sitemap
-- 🤖 **robots.txt** - Proper crawler directives
-- 📱 **OpenGraph & Twitter Cards** - Social media optimization
-- 🏷️ **Semantic HTML** - Proper heading hierarchy and ARIA labels
+### ðŸ” SEO Excellence
+- ðŸ“Š **Structured Data** - JSON-LD schema markup for rich search results
+- ðŸ—ºï¸ **Dynamic Sitemap** - Auto-generated XML sitemap
+- ðŸ¤– **robots.txt** - Proper crawler directives
+- ðŸ“± **OpenGraph & Twitter Cards** - Social media optimization
+- ðŸ·ï¸ **Semantic HTML** - Proper heading hierarchy and ARIA labels
 
-### 🎨 UI/UX Design
-- 🌓 **Modern Aesthetics** - Clean, professional design system
-- 📱 **Fully Responsive** - Mobile-first approach
-- ♿ **Accessible** - WCAG 2.1 AA compliant
-- 🎭 **Premium Typography** - Plus Jakarta Sans, Sora, Inter, Outfit fonts
+### ðŸŽ¨ UI/UX Design
+- ðŸŒ“ **Modern Aesthetics** - Clean, professional design system
+- ðŸ“± **Fully Responsive** - Mobile-first approach
+- â™¿ **Accessible** - WCAG 2.1 AA compliant
+- ðŸŽ­ **Premium Typography** - Plus Jakarta Sans, Sora, Inter, Outfit fonts
 
 ---
 
-## 🛠️ Tech Stack
+## ðŸ› ï¸ Tech Stack
 
 | Category | Technology |
 |----------|-----------|
@@ -80,46 +80,46 @@ Built with **static site generation (SSG)** using Astro for maximum performance,
 
 ---
 
-## 📁 Project Structure
+## ðŸ“ Project Structure
 
 ```
 visa/
-├── public/
-│   ├── assets/images/      # Static images
-│   ├── robots.txt          # Crawler directives
-│   ├── sitemap.xml         # SEO sitemap
-│   └── favicon.*           # Favicon files
-│
-├── src/
-│   ├── components/
-│   │   ├── common/         # Shared components (Header, Footer, SEO)
-│   │   ├── home/           # Homepage sections
-│   │   ├── about/          # About page components
-│   │   ├── services/       # Services page components
-│   │   ├── destinations/   # Destinations page components
-│   │   └── contact/        # Contact page components
-│   │
-│   ├── layouts/
-│   │   └── Layout.astro    # Base layout with SEO + StructuredData
-│   │
-│   ├── pages/              # File-based routing
-│   │   ├── index.astro     # Homepage
-│   │   ├── about.astro     # About page
-│   │   ├── services.astro  # Services page
-│   │   ├── destinations.astro
-│   │   └── contact.astro
-│   │
-│   └── styles/
-│       └── global.css      # Global styles + Tailwind directives
-│
-├── astro.config.mjs        # Astro configuration
-├── tailwind.config.mjs     # Tailwind v4 config
-└── tsconfig.json           # TypeScript config
+â”œâ”€â”€ public/
+â”‚   â”œâ”€â”€ assets/images/      # Static images
+â”‚   â”œâ”€â”€ robots.txt          # Crawler directives
+â”‚   â”œâ”€â”€ sitemap.xml         # SEO sitemap
+â”‚   â””â”€â”€ favicon.*           # Favicon files
+â”‚
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”œâ”€â”€ common/         # Shared components (Header, Footer, SEO)
+â”‚   â”‚   â”œâ”€â”€ home/           # Homepage sections
+â”‚   â”‚   â”œâ”€â”€ about/          # About page components
+â”‚   â”‚   â”œâ”€â”€ services/       # Services page components
+â”‚   â”‚   â”œâ”€â”€ destinations/   # Destinations page components
+â”‚   â”‚   â””â”€â”€ contact/        # Contact page components
+â”‚   â”‚
+â”‚   â”œâ”€â”€ layouts/
+â”‚   â”‚   â””â”€â”€ Layout.astro    # Base layout with SEO + StructuredData
+â”‚   â”‚
+â”‚   â”œâ”€â”€ pages/              # File-based routing
+â”‚   â”‚   â”œâ”€â”€ index.astro     # Homepage
+â”‚   â”‚   â”œâ”€â”€ about.astro     # About page
+â”‚   â”‚   â”œâ”€â”€ services.astro  # Services page
+â”‚   â”‚   â”œâ”€â”€ destinations.astro
+â”‚   â”‚   â””â”€â”€ contact.astro
+â”‚   â”‚
+â”‚   â””â”€â”€ styles/
+â”‚       â””â”€â”€ global.css      # Global styles + Tailwind directives
+â”‚
+â”œâ”€â”€ astro.config.mjs        # Astro configuration
+â”œâ”€â”€ tailwind.config.mjs     # Tailwind v4 config
+â””â”€â”€ tsconfig.json           # TypeScript config
 ```
 
 ---
 
-## 🚀 Getting Started
+## ðŸš€ Getting Started
 
 ### Prerequisites
 - **Node.js** v18+ (v20+ recommended)
@@ -150,7 +150,7 @@ visa/
 
 ---
 
-## 💻 Development
+## ðŸ’» Development
 
 ### Available Commands
 
@@ -170,14 +170,14 @@ visa/
 5. **Testing** - Preview locally before deploying
 
 ### Code Quality Standards
-- ✅ **TypeScript strict mode** - Type safety enforced
-- ✅ **Component size limit** - Max 70 lines per component
-- ✅ **Semantic HTML** - Proper heading hierarchy (H1-H6)
-- ✅ **Accessibility** - ARIA labels and alt text mandatory
+- âœ… **TypeScript strict mode** - Type safety enforced
+- âœ… **Component size limit** - Max 70 lines per component
+- âœ… **Semantic HTML** - Proper heading hierarchy (H1-H6)
+- âœ… **Accessibility** - ARIA labels and alt text mandatory
 
 ---
 
-## 📊 Performance & SEO
+## ðŸ“Š Performance & SEO
 
 ### Lighthouse Scores (Target)
 - **Performance:** 100/100
@@ -186,25 +186,25 @@ visa/
 - **SEO:** 100/100
 
 ### Optimizations Implemented
-- ⚡ **Static Generation** - Pre-rendered HTML
-- 🖼️ **Image Optimization** - WebP/AVIF formats
-- 🎨 **CSS Optimization** - Purged unused styles
-- 📦 **Bundle Size** - Minimal JavaScript payload
-- 🔤 **Font Loading** - Self-hosted with `font-display: swap`
-- 🗺️ **Structured Data** - Schema.org JSON-LD markup
+- âš¡ **Static Generation** - Pre-rendered HTML
+- ðŸ–¼ï¸ **Image Optimization** - WebP/AVIF formats
+- ðŸŽ¨ **CSS Optimization** - Purged unused styles
+- ðŸ“¦ **Bundle Size** - Minimal JavaScript payload
+- ðŸ”¤ **Font Loading** - Self-hosted with `font-display: swap`
+- ðŸ—ºï¸ **Structured Data** - Schema.org JSON-LD markup
 
 ### SEO Features
-- ✅ Dynamic meta tags per page
-- ✅ OpenGraph & Twitter Card tags
-- ✅ Canonical URLs
-- ✅ XML sitemap (`/sitemap.xml`)
-- ✅ robots.txt configuration
-- ✅ Semantic HTML structure
-- ✅ JSON-LD structured data
+- âœ… Dynamic meta tags per page
+- âœ… OpenGraph & Twitter Card tags
+- âœ… Canonical URLs
+- âœ… XML sitemap (`/sitemap.xml`)
+- âœ… robots.txt configuration
+- âœ… Semantic HTML structure
+- âœ… JSON-LD structured data
 
 ---
 
-## 🌐 Deployment
+## ðŸŒ Deployment
 
 ### Recommended Platforms
 - **Vercel** (Recommended)
@@ -253,7 +253,7 @@ npm run build
 dist
 ```
 
-### ⚠️ Windows Build Note
+### âš ï¸ Windows Build Note
 This project uses `csso` for CSS optimization. If `npm run build` fails on Windows:
 - **Workaround 1:** Use WSL (Windows Subsystem for Linux)
 - **Workaround 2:** Deploy directly to Vercel/Netlify/Cloudflare (builds work on Linux CI)
@@ -262,7 +262,7 @@ The codebase is production-ready; the issue is environment-specific.
 
 ---
 
-## 🤝 Contributing
+## ðŸ¤ Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -272,20 +272,20 @@ The codebase is production-ready; the issue is environment-specific.
 
 ---
 
-## 📄 License
+## ðŸ“„ License
 
-This project is proprietary software for **True Gate Visa**.  
-All rights reserved © 2026 True Gate Visa, Ernakulam, Kerala.
-
----
-
-## 📞 Contact
-
-**True Gate Visa**  
-📍 Ernakulam, Kerala, India  
-🌐 [Website](https://truegate.example.com) (Update with actual URL)  
-📧 info@truegate.example.com (Update with actual email)
+This project is proprietary software for **TrueGate Visa**.  
+All rights reserved Â© 2026 TrueGate Visa, Ernakulam, Kerala.
 
 ---
 
-**Built with ❤️ using Astro + Tailwind CSS**
+## ðŸ“ž Contact
+
+**TrueGate Visa**  
+ðŸ“ Ernakulam, Kerala, India  
+ðŸŒ [Website](https://truegate.example.com) (Update with actual URL)  
+ðŸ“§ info@truegate.example.com (Update with actual email)
+
+---
+
+**Built with â¤ï¸ using Astro + Tailwind CSS**

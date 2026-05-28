@@ -12,8 +12,11 @@ const heroImages = [
       <img 
         src={image}
         alt={`Contact ${index + 1}`}
+        width={1920}
+        height={1080}
         class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
         data-carousel-slide
+        loading={index === 0 ? "eager" : "lazy"}
       />
     ))}
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
@@ -25,7 +28,7 @@ const heroImages = [
     </span>
     <h1 class="hero-headline drop-shadow-2xl">Contact Us</h1>
     <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-      Ready to start your journey? We're here to help plan your perfect trip.
+      Have questions about visa classes or filing eligibility? Contact our counseling office today.
     </p>
   </div>
 </section>

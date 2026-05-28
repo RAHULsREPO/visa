@@ -10,7 +10,20 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://truegatevisa.com',
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      {
+        name: 'resolve-dist-favicon',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (req.url === '/dist/favicon.svg' || req.url?.startsWith('/dist/favicon.svg')) {
+              req.url = '/favicon.svg';
+            }
+            next();
+          });
+        }
+      }
+    ],
     build: {
       cssMinify: true
     }

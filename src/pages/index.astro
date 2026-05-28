@@ -3,25 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
 import Hero from '../components/home/Hero.astro';
-import VisaPackages from '../components/home/VisaPackages.astro';
+import VisaConsultingServices from '../components/home/VisaConsultingServices.astro';
+import EligibilityChecker from '../components/home/EligibilityChecker.astro';
 import PopularDestinations from '../components/home/PopularDestinations.astro';
 import WhyChooseUs from '../components/home/WhyChooseUs.astro';
 import Testimonials from '../components/home/Testimonials.astro';
+import FAQ from '../components/home/FAQ.astro';
 ---
 
 <Layout 
-	title="True Gate Visa - Personalized Travel & Visa Services | Ernakulam, Kerala"
-	description="Explore the world with confidence! True Gate Visa offers personalized travel experiences, visa consultancy, and holiday packages for India and international destinations. Contact us in Ernakulam, Kerala."
-	keywords="travel agency kerala, visa consultancy ernakulam, holiday packages india, international travel, explore packages, personalized travel, tour packages kerala, visa services"
+	title="TrueGate Visa - Premium Visa Consultancy & Immigration Services | Ernakulam, Kerala"
+	description="Looking for expert visa consultants in Ernakulam? TrueGate Visa simplifies student visas, work permits, tourist filings, and business immigration pathways with high success rates."
+	keywords="visa consultancy ernakulam, visa assistance kerala, student visa consultants, work visa permits, tourist visa filing, immigration consultants ernakulam, TrueGate Visa, schengen visa study visa canada"
 >
 	<Header />
 	<main class="relative overflow-x-clip">
 		<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_12%_18%,rgba(241,199,91,0.3),transparent_42%),radial-gradient(circle_at_88%_4%,rgba(38,99,184,0.2),transparent_38%)]"></div>
 		<Hero />
-		<VisaPackages />
+		<VisaConsultingServices />
+		<EligibilityChecker />
 		<PopularDestinations />
 		<WhyChooseUs />
 		<Testimonials />
+		<FAQ />
 	</main>
 	<Footer />
 </Layout>

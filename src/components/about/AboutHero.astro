@@ -12,8 +12,11 @@ const heroImages = [
       <img 
         src={image}
         alt={`About ${index + 1}`}
+        width={1920}
+        height={1080}
         class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
         data-carousel-slide
+        loading={index === 0 ? "eager" : "lazy"}
       />
     ))}
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
@@ -30,10 +33,10 @@ const heroImages = [
       About Us
     </span>
     <h1 class="hero-headline drop-shadow-2xl">
-      Your Gateway to Seamless Travel
+      Your Gateway to Global Pathways
     </h1>
     <p class="text-xl md:text-2xl text-white/90 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">
-      Trusted visa consultancy and travel partner, making global journeys effortless since 2025.
+      Dedicated visa consultancy and immigration advisors in Ernakulam, making global pathways clear and structured since 2025.
     </p>
   </div>
 </section>

@@ -19,7 +19,7 @@ interface Props {
 
 const { 
 	title, 
-	description = "True Gate Visa - Personalized Travel Experiences in India and Internationally",
+	description = "TrueGate Visa - Personalized Travel Experiences in India and Internationally",
 	keywords,
 	ogImage
 } = Astro.props;
@@ -44,7 +44,34 @@ const {
 			gtag('config', 'AW-18048397050');
 		</script>
 		<script is:inline>
+			const initScrollReveal = () => {
+				const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+				
+				const observerOptions = {
+					root: null,
+					rootMargin: '0px 0px -8% 0px',
+					threshold: 0.05
+				};
+
+				const revealObserver = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('reveal-visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, observerOptions);
+
+				revealElements.forEach(el => {
+					revealObserver.observe(el);
+				});
+			};
+
 			document.addEventListener('DOMContentLoaded', () => {
+				// Init Scroll Reveal
+				initScrollReveal();
+
+				// Init Carousels
 				const carousels = document.querySelectorAll('[data-auto-carousel]');
 				const cleanupFns = [];
 

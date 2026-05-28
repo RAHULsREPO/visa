@@ -12,8 +12,11 @@ const heroImages = [
       <img 
         src={image}
         alt={`Destinations ${index + 1}`}
+        width={1920}
+        height={1080}
         class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
         data-carousel-slide
+        loading={index === 0 ? "eager" : "lazy"}
       />
     ))}
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
@@ -21,11 +24,11 @@ const heroImages = [
 
   <div class="container relative z-10 mx-auto px-4 text-center space-y-6 max-w-4xl">
     <span class="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold tracking-widest uppercase">
-      Explore The World
+      Global Reach
     </span>
-    <h1 class="hero-headline drop-shadow-2xl">Our Destinations</h1>
+    <h1 class="hero-headline drop-shadow-2xl">Immigration & Visa Destinations</h1>
     <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-      Explore handpicked packages for the most beautiful places in India and around the world.
+      Navigate your visa path with confidence. Comprehensive filing and documentation support for major international and skilled immigration hubs.
     </p>
   </div>
 </section>

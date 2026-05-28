@@ -1,67 +1,63 @@
 ---
+import { Star } from 'lucide-react';
+
+const reviews = [
+  {
+    initials: 'AK',
+    name: 'Ajmal Karuthedath',
+    visa: 'Canada Student Visa',
+    text: 'I had an excellent experience with TrueGate Visa. Their team helped with my Canada student visa filing. The SOP audit and financial documentation structuring was highly professional. Got my approval stamped in 3 weeks!'
+  },
+  {
+    initials: 'SN',
+    name: 'Sana Nasri',
+    visa: 'Germany Tourist Visa (Schengen)',
+    text: 'Excellent service for Schengen tourist visa. The Ernakulam team provided a detailed day-wise itinerary, verified all flight/hotel vouchers, and drafted the cover letter. The submission was completely stress-free.'
+  },
+  {
+    initials: 'RJ',
+    name: 'Rahul James',
+    visa: 'UK Skilled Worker Visa',
+    text: 'Very professional approach. They analyzed my profile and guided me through the complex UK Certificate of Sponsorship (CoS) filing. The mock embassy interview sessions boosted my confidence significantly!'
+  }
+];
 ---
-<section class="section-pad relative overflow-hidden bg-[linear-gradient(180deg,#f4f8ff_0%,#fdf7ea_100%)]">
+
+<section id="testimonials" class="section-pad relative overflow-hidden bg-[linear-gradient(180deg,#f4f8ff_0%,#fdf7ea_100%)]">
   <div class="pointer-events-none absolute -left-10 top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl"></div>
   <div class="pointer-events-none absolute -right-10 bottom-8 h-56 w-56 rounded-full bg-accent/25 blur-3xl"></div>
 
   <div class="container relative z-10 mx-auto px-4">
     <div class="mx-auto mb-16 max-w-3xl text-center">
-      <h2 class="mb-4 inline-flex rounded-full border border-primary/20 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">Testimonials</h2>
-      <h3 class="text-4xl font-heading font-bold text-primary-dark md:text-5xl">What Our Travelers Say</h3>
-      <p class="mt-4 text-lg text-slate-600">Real stories from customers who trusted us for visa assistance and holiday planning.</p>
+      <span class="mb-4 inline-flex rounded-full border border-primary/20 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">Client Stories</span>
+      <h3 class="text-4xl font-heading font-black text-primary-dark md:text-5xl">What Our Clients Say</h3>
+      <p class="mt-4 text-lg text-slate-600">Real stories from applicants who secured their visa approvals through TrueGate Visa.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Review 1 -->
-      <div class="rounded-2xl border border-white/70 bg-white/95 p-8 shadow-[0_20px_45px_-28px_rgba(21,69,154,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_52px_-28px_rgba(30,58,109,0.4)]">
-        <div class="mb-4 flex gap-1 text-accent-dark">
-          {'★'.repeat(5)}
-        </div>
-        <p class="mb-6 leading-relaxed text-slate-700">
-          "I had an excellent experience with True Gate Visa. Their tailor made trip to Thailand with private guide was awesome for hassle free family trip."
-        </p>
-        <div class="flex items-center gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">AK</div>
+      {reviews.map((review) => (
+        <div class="reveal rounded-2xl border border-slate-200/50 bg-white/95 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <h5 class="font-bold text-primary-dark">Ajmal Karuthedath</h5>
-            <p class="text-xs text-slate-500">Thailand Trip</p>
+            <div class="mb-4 flex gap-1 text-accent">
+              {[...Array(5)].map((_, i) => (
+                <Star size={18} fill="currentColor" key={i} />
+              ))}
+            </div>
+            <p class="mb-6 leading-relaxed text-slate-700 italic">
+              "{review.text}"
+            </p>
+          </div>
+          <div class="flex items-center gap-4 border-t border-slate-100 pt-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">
+              {review.initials}
+            </div>
+            <div>
+              <h5 class="font-bold text-primary-dark">{review.name}</h5>
+              <p class="text-xs text-slate-500 font-semibold">{review.visa}</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Review 2 -->
-      <div class="rounded-2xl border border-white/70 bg-white/95 p-8 shadow-[0_20px_45px_-28px_rgba(21,69,154,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_52px_-28px_rgba(30,58,109,0.4)]">
-        <div class="mb-4 flex gap-1 text-accent-dark">
-          {'★'.repeat(5)}
-        </div>
-        <p class="mb-6 leading-relaxed text-slate-700">
-          "Excellent service! The itinerary was well-planned, the bookings were smooth, and the team was always responsive. Made our trip stress-free."
-        </p>
-        <div class="flex items-center gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">SN</div>
-          <div>
-            <h5 class="font-bold text-primary-dark">Sana Nasri</h5>
-            <p class="text-xs text-slate-500">Family Vacation</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="rounded-2xl border border-white/70 bg-white/95 p-8 shadow-[0_20px_45px_-28px_rgba(21,69,154,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_52px_-28px_rgba(30,58,109,0.4)]">
-        <div class="mb-4 flex gap-1 text-accent-dark">
-          {'★'.repeat(5)}
-        </div>
-        <p class="mb-6 leading-relaxed text-slate-700">
-          "Very professional approach. They understood exactly what we were looking for and delivered a perfect itinerary within our budget."
-        </p>
-        <div class="flex items-center gap-4">
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">RJ</div>
-          <div>
-            <h5 class="font-bold text-primary-dark">Rahul James</h5>
-            <p class="text-xs text-slate-500">Bali Honeymoon</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>

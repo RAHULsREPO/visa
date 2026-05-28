@@ -1,0 +1,48 @@
+---
+import DestinationCard from './DestinationCard.astro';
+
+const specializedVisas = [
+  { 
+    title: "Canada Permanent Residency (PR)", 
+    image: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=600&h=338&fit=crop", 
+    desc: "Detailed points assessment, ECA verification, CRS score optimization, and Express Entry or Provincial Nominee Program (PNP) filing.", 
+    link: "/#eligibility-checker" 
+  },
+  { 
+    title: "Australia Skilled Independent (PR)", 
+    image: "https://images.unsplash.com/photo-1524820197278-540916411e20?q=80&w=600&h=338&fit=crop", 
+    desc: "Points-based visa streams including Subclass 189, 190, and 491. End-to-end guidance for Skill Assessment audits and state nominations.", 
+    link: "/#eligibility-checker" 
+  },
+  { 
+    title: "Golden Visas & Investor Routes", 
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600&h=338&fit=crop", 
+    desc: "High-net-worth investor routes in Dubai (UAE Golden Visa), Portugal, Spain, and Malta. Business plan auditing and legal compliance reviews.", 
+    link: "/#eligibility-checker" 
+  }
+];
+---
+
+<section id="specialized-visas" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 text-center md:text-left">
+       <h2 class="text-3xl font-heading font-bold text-primary flex items-center justify-center md:justify-start gap-3">
+         <span class="w-2 h-12 bg-accent rounded-full block"></span>
+         Specialized Immigration Streams
+      </h2>
+      <p class="text-slate-600 mt-2 ml-5">Long-term residency, professional immigration, and high-value investment routes.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {specializedVisas.map(visa => (
+        <DestinationCard 
+          title={visa.title} 
+          image={visa.image} 
+          desc={visa.desc} 
+          link={visa.link} 
+          layout="large" 
+        />
+      ))}
+    </div>
+  </div>
+</section>

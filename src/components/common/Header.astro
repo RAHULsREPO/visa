@@ -5,21 +5,23 @@ import MobileMenuButton from './MobileMenuButton.astro';
 import MobileMenu from './MobileMenu.astro';
 ---
 
-<header class="sticky top-0 z-[9999] bg-white/92 backdrop-blur-lg border-b border-primary/10 transition-all duration-300 shadow-sm">
-	<div class="container mx-auto px-4 h-20 flex items-center justify-between">
-		<!-- Logo -->
-		<a href="/" class="flex items-center group flex-shrink-0">
-			<img src="/logo.svg" alt="True Gate Visa" class="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
-		</a>
+<header class="fixed inset-x-0 top-0 z-[9999] pt-5 transition-all duration-500">
+	<div class="container mx-auto px-4">
+		<div class="relative flex items-center justify-between rounded-2xl border border-slate-200/50 bg-white/60 backdrop-blur-md px-4 py-2.5 md:px-6 md:py-3 transition-all duration-500 shadow-sm shadow-slate-100">
+			<!-- Logo -->
+			<a href="/" class="flex items-center group flex-shrink-0">
+				<img src="/logo.svg" alt="TrueGate Visa" class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+			</a>
 
-		<!-- Desktop Nav -->
-		<DesktopNav />
+			<!-- Desktop Nav -->
+			<DesktopNav />
 
-		<!-- Desktop CTA -->
-		<DesktopCTA />
+			<!-- Desktop CTA -->
+			<DesktopCTA />
 
-		<!-- Mobile Menu Button -->
-		<MobileMenuButton />
+			<!-- Mobile Menu Button -->
+			<MobileMenuButton />
+		</div>
 	</div>
 
 	<!-- Mobile Menu -->

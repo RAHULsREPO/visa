@@ -1,81 +1,174 @@
 ---
-const heroSlides = [
-  {
-    src: '/assets/images/packages/japan-visa-package.jpg',
-    alt: 'Japan visa package offer by True Gate Visa'
-  },
-  {
-    src: '/assets/images/packages/usa-visa-package.jpg',
-    alt: 'America visa package offer by True Gate Visa'
-  },
-  {
-    src: '/assets/images/packages/ireland-visa-package.jpg',
-    alt: 'Ireland visa package offer by True Gate Visa'
-  }
-];
+import { ArrowRight, Star, Sparkles } from 'lucide-react';
 ---
-<section class="relative isolate overflow-hidden">
-  <div class="absolute inset-0 -z-10" data-auto-carousel data-interval="4200">
-    {heroSlides.map((slide, index) => (
-      <img
-        src={slide.src}
-        alt={slide.alt}
-        class={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-        data-carousel-slide
-      />
-    ))}
-    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/55"></div>
+
+<section class="relative min-h-[640px] md:min-h-[720px] flex items-center overflow-hidden bg-[#070f2b] text-white py-16 md:py-24">
+  <!-- Dynamic Animated CSS Mesh Gradient Background with Video integration -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <!-- Dark deep blue background -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#020617] via-[#070f2b] to-[#1e1b4b]"></div>
+    
+    <!-- Subtle Travel Background Video (Low Opacity, Luminosity Blended) -->
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1920&auto=format&fit=crop" 
+      class="absolute inset-0 h-full w-full object-cover opacity-12 mix-blend-luminosity"
+    >
+      <source src="/assets/images/travel-bg.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Floating glowing mesh blobs -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#15459a]/20 blur-[120px] animate-float-1"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#f1c75b]/10 blur-[130px] animate-float-2"></div>
+    <div class="absolute top-[30%] right-[20%] w-[35%] h-[35%] rounded-full bg-indigo-500/10 blur-[100px] animate-float-1"></div>
+    
+    <!-- Subtle grid overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-35"></div>
   </div>
 
-  <div class="container mx-auto grid min-h-[560px] items-center gap-10 px-4 py-14 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:py-18 lg:py-20">
-    <div class="relative z-10 text-white">
-      <span class="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
-        Trusted Visa & Holiday Experts
-      </span>
+  <div class="container relative z-10 mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+    <!-- Left Column: Copy & CTAs -->
+    <div class="lg:col-span-7 space-y-8">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur-md">
+        <Sparkles size={12} className="animate-pulse text-accent" />
+        <span>Trusted Visa Advisory</span>
+      </div>
 
-      <h1 class="mt-6 text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
-        Beautiful Journeys,
-        <span class="block bg-gradient-to-r from-accent-light via-accent to-[#ffe7a9] bg-clip-text text-transparent">Zero Stress Planning</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.05] tracking-tight text-white">
+        Your Gateway to the World,
+        <span class="block bg-gradient-to-r from-accent-light via-accent to-[#ffe7a9] bg-clip-text text-transparent">Made Simple.</span>
       </h1>
 
-      <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
-        From visa guidance to curated holiday packages, True Gate Visa helps you travel smarter with end-to-end support from Ernakulam.
+      <p class="max-w-2xl text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
+        TrueGate Visa helps you prepare stronger visitor visa documentation with structured guidance, checklists, and destination-focused planning.
       </p>
 
-      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <a href="/#holiday-packages" class="btn-primary px-8">
-          View Holiday Packages
+      <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+        <a href="#popular-destinations" class="inline-flex items-center justify-center gap-2 rounded-[14px] bg-accent hover:bg-accent-light px-7 py-4 text-sm font-semibold text-[#070f2b] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_26px_rgba(241,199,91,0.45)] text-center">
+          Assess Your Eligibility
         </a>
-        <a href="/contact" class="btn-secondary border-white/35 bg-white/10 px-8">
-          Talk To An Expert
+        <a href="https://wa.me/919720409020" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[14px] border-2 border-white px-7 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent/15 text-center">
+          Talk on WhatsApp
         </a>
       </div>
 
-      <div class="mt-8 grid max-w-lg grid-cols-3 gap-3 text-center">
-        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
-          <p class="text-xl font-extrabold">1K+</p>
-          <p class="text-xs uppercase tracking-wider text-white/80">Happy Travelers</p>
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-3 gap-4 pt-4 max-w-lg">
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-white/10 hover:bg-white/10">
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">1K+</p>
+          <p class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400">Applications Stamped</p>
         </div>
-        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
-          <p class="text-xl font-extrabold">24/7</p>
-          <p class="text-xs uppercase tracking-wider text-white/80">Support</p>
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-white/10 hover:bg-white/10">
+          <p class="text-2xl sm:text-3xl font-extrabold text-accent">99.2%</p>
+          <p class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400">Accuracy Rate</p>
         </div>
-        <div class="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
-          <p class="text-xl font-extrabold">Fast</p>
-          <p class="text-xs uppercase tracking-wider text-white/80">Visa Guidance</p>
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-white/10 hover:bg-white/10">
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">24/7</p>
+          <p class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400">File Tracking</p>
         </div>
       </div>
     </div>
 
-    <div class="relative z-10 hidden md:block">
-      <div class="mx-auto max-w-md rounded-3xl border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-accent-light">Why Travelers Pick Us</p>
-        <ul class="mt-5 space-y-3 text-white/90">
-          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Personalized itinerary based on your budget</li>
-          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Transparent process for visa documents</li>
-          <li class="rounded-xl border border-white/20 bg-white/5 px-4 py-3">Fast response on WhatsApp and call support</li>
-        </ul>
+    <!-- Right Column: Premium Visual Glassmorphic Dashboard -->
+    <div class="lg:col-span-5 relative hidden lg:block">
+      <!-- Glow behind the card -->
+      <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-accent/20 to-indigo-500/20 opacity-30 blur-2xl"></div>
+      
+      <div class="relative rounded-3xl border border-accent/20 bg-[#070f2b]/60 p-8 shadow-2xl backdrop-blur-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="flex items-center gap-2">
+            <span class="h-3 w-3 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="h-3 w-3 absolute rounded-full bg-emerald-500"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-300 ml-1.5">Live Approvals Feed</span>
+          </div>
+          <span class="text-[10px] bg-white/10 px-2 py-1 rounded text-slate-400 font-mono">Synced: Today</span>
+        </div>
+
+        <!-- Approval Logs list -->
+        <div class="space-y-4">
+          <!-- Item 1 -->
+          <div class="flex items-center justify-between p-3.5 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-accent/15 flex items-center justify-center font-bold text-accent">US</div>
+              <div>
+                <p class="text-sm font-bold text-white">USA Tourist Visa</p>
+                <p class="text-xs text-slate-400">Profile: B1/B2, Ernakulam IT Professional</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full">Approved</span>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex items-center justify-between p-3.5 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-indigo-500/15 flex items-center justify-center font-bold text-indigo-300">UK</div>
+              <div>
+                <p class="text-sm font-bold text-white">UK Standard Visitor</p>
+                <p class="text-xs text-slate-400">Profile: Family visit support</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full">Approved</span>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex items-center justify-between p-3.5 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-sky-500/20 flex items-center justify-center font-bold text-sky-300">EU</div>
+              <div>
+                <p class="text-sm font-bold text-white">Schengen Visit Visa</p>
+                <p class="text-xs text-slate-400">Profile: Multi-country tourist plan</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full">Approved</span>
+          </div>
+        </div>
+
+        <!-- Rating widget -->
+        <div class="border-t border-white/10 pt-4 flex items-center justify-between text-sm text-slate-300">
+          <div class="flex items-center gap-1.5">
+            <Star size={16} fill="currentColor" className="text-amber-400" />
+            <span class="font-bold text-white">4.9/5.0</span>
+            <span class="text-slate-400 text-xs">(Based on 250+ reviews)</span>
+          </div>
+          <span class="text-accent font-semibold hover:underline cursor-pointer flex items-center gap-1">
+            Read Reviews <ArrowRight size={14} />
+          </span>
+        </div>
       </div>
     </div>
+    
   </div>
 </section>
+
+<style>
+  /* Custom slowly floating background gradients */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-25px) scale(1.08);
+    }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0) scale(1.08);
+    }
+    50% {
+      transform: translateY(25px) scale(0.92);
+    }
+  }
+
+  .animate-float-1 {
+    animation: float-slow 12s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float-delayed 15s ease-in-out infinite;
+  }
+</style>

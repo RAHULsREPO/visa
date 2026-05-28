@@ -1,0 +1,119 @@
+---
+import { ChevronDown } from 'lucide-react';
+
+const faqs = [
+  {
+    question: "What support do you provide for tourist and visit visas?",
+    answer: "We offer comprehensive profile assessments, personalized documentation checklists, cover letter drafting, application form filing, fee transaction routing, and customized embassy mock interview coaching."
+  },
+  {
+    question: "Do you guarantee visa approval?",
+    answer: "No ethical agency can guarantee visa approval. The final decision rests entirely with the respective consular officer or embassy. TrueGate Visa ensures your application is completely error-free and aligned with consular rules to maximize your approval probability."
+  },
+  {
+    question: "How long does the visa documentation process take?",
+    answer: "Our documentation audit and compilation generally take 3 to 7 working days once you submit the raw records. Concurring embassy processing times depend on appointment queues and consular timelines of the destination country."
+  },
+  {
+    question: "Can you review and correct document rejections or gaps?",
+    answer: "Yes, we specialize in refusal audits. We read CAIPS/GCMS logs, identify structural document errors, resolve coverage issues, and write detailed corrective appeal submissions for a successful re-application."
+  }
+];
+---
+
+<section id="faq" class="section-pad bg-[#070f2b] text-white border-t border-white/10 relative overflow-hidden">
+  <!-- Glow effect -->
+  <div class="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#15459a]/10 blur-3xl"></div>
+
+  <div class="container relative z-10 mx-auto px-4 max-w-4xl">
+    <div class="mb-14 text-center">
+      <span class="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent backdrop-blur">
+        FAQ
+      </span>
+      <h2 class="mt-4 font-heading text-3xl font-black leading-tight text-white md:text-5xl">
+        Frequently Asked Questions
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base text-slate-300 leading-relaxed md:text-lg">
+        Get direct answers to common queries regarding document audit workflows, consular processing, and support.
+      </p>
+    </div>
+
+    <!-- Accordion Wrapper -->
+    <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-8 space-y-4">
+      {faqs.map((faq) => (
+        <div class="border-b border-white/10 last:border-b-0 pb-4 last:pb-0" data-faq-item>
+          <button 
+            type="button" 
+            class="flex w-full items-center justify-between gap-6 py-4 text-left focus:outline-none group"
+            data-faq-trigger
+            aria-expanded="false"
+          >
+            <span class="text-base font-bold text-white md:text-lg group-hover:text-accent transition-colors">
+              {faq.question}
+            </span>
+            <ChevronDown size={20} className="text-accent transition-transform duration-300 shrink-0" data-faq-icon />
+          </button>
+          
+          <div class="overflow-hidden transition-all duration-300 max-h-0 opacity-0" data-faq-content>
+            <p class="pb-4 pr-4 text-sm leading-relaxed text-slate-300 md:text-base">
+              {faq.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const initFaqAccordion = () => {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+    
+    faqItems.forEach((item) => {
+      const trigger = item.querySelector('[data-faq-trigger]');
+      const content = item.querySelector('[data-faq-content]');
+      const icon = item.querySelector('[data-faq-icon]');
+
+      if (!trigger || !content || !icon) return;
+
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        
+        // Close other items
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+            const otherContent = otherItem.querySelector('[data-faq-content]');
+            const otherIcon = otherItem.querySelector('[data-faq-icon]');
+            
+            if (otherTrigger && otherContent && otherIcon) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              otherContent.style.maxHeight = '0px';
+              otherContent.classList.remove('opacity-100');
+              otherContent.classList.add('opacity-0');
+              otherIcon.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = '0px';
+          content.classList.remove('opacity-100');
+          content.classList.add('opacity-0');
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.classList.remove('opacity-0');
+          content.classList.add('opacity-100');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', initFaqAccordion);
+  document.addEventListener('astro:page-load', initFaqAccordion);
+</script>

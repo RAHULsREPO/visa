@@ -13,8 +13,11 @@ const heroImages = [
       <img 
         src={image}
         alt={`Travel Services ${index + 1}`}
+        width={1920}
+        height={1080}
         class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
         data-carousel-slide
+        loading={index === 0 ? "eager" : "lazy"}
       />
     ))}
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
@@ -22,11 +25,11 @@ const heroImages = [
 
   <div class="relative z-10 container mx-auto px-4 py-8 text-center text-white">
     <span class="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold tracking-widest uppercase">
-      What We Offer
+      Expert Solutions
     </span>
-    <h1 class="hero-headline drop-shadow-2xl">Our Services</h1>
+    <h1 class="hero-headline drop-shadow-2xl">Visa & Immigration Services</h1>
     <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-      Crafting unforgettable holiday experiences for everyone. From budget getaways to luxury escapes.
+      Navigating global visa regulations with absolute precision. Comprehensive filing guidance, document audit, and interview preparation.
     </p>
   </div>
 </section>
