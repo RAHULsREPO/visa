@@ -1,10 +1,18 @@
 ---
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 ---
 
 <div class="hidden md:flex items-center gap-4">
+	<button 
+		id="callback-trigger-desktop" 
+		class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 transition-all text-sm font-bold cursor-pointer"
+	>
+		<Phone size={14} />
+		<span>Request Callback</span>
+	</button>
 	<a href="https://wa.me/919720409020" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm animate-pulse-slow">
 		<MessageCircle size={16} />
 		<span>Start a Chat</span>
 	</a>
 </div>
+

@@ -1,0 +1,444 @@
+---
+import { X, Phone, User, Mail, Globe, Clock, MessageSquare, ChevronDown, CheckCircle2, ArrowRight } from 'lucide-react';
+import { countries } from '../../data/countries';
+
+// Web3Forms Access Key
+const web3formsAccessKey = "8467b5e5-9481-4f0d-a668-c5755861c696";
+---
+
+<!-- Modal Wrapper -->
+<div 
+  id="callback-modal" 
+  class="fixed inset-0 z-[10000] flex items-center justify-center p-4 invisible opacity-0 transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <!-- Backdrop -->
+  <div 
+    id="modal-backdrop" 
+    class="absolute inset-0 bg-slate-950/60 backdrop-blur-md transition-opacity duration-300 opacity-0"
+  ></div>
+
+  <!-- Modal Content Container -->
+  <div 
+    id="modal-container" 
+    class="relative w-full max-w-lg bg-white rounded-2xl border border-slate-200/60 shadow-2xl p-6 md:p-8 transform-gpu scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto"
+  >
+    <!-- Close Button -->
+    <button 
+      id="modal-close" 
+      class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 rounded-full p-1.5 hover:bg-slate-100 transition-colors focus:ring-2 focus:ring-primary/20 focus:outline-none cursor-pointer"
+      aria-label="Close callback modal"
+    >
+      <X size={20} />
+    </button>
+
+    <!-- Modal Form View -->
+    <div id="modal-form-view">
+      <div class="mb-6 pr-6">
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-primary bg-primary/5 px-2.5 py-1 rounded-full">
+          <Phone size={11} />
+          <span>Quick Callback</span>
+        </span>
+        <h3 id="modal-title" class="mt-2 font-heading text-2xl font-black text-slate-900 tracking-tight">
+          Request a Callback
+        </h3>
+        <p class="mt-1.5 text-sm text-slate-500">
+          Fill in the details below. Our senior visa counselor will get in touch with you shortly.
+        </p>
+      </div>
+
+      <form id="callback-form" class="space-y-4">
+        <!-- Web3Forms Config -->
+        <input type="hidden" name="access_key" value={web3formsAccessKey} />
+        <input type="hidden" name="subject" value="New Callback Request - TrueGate Visa" />
+        <input type="hidden" name="from_name" value="TrueGate Visa Lead System" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+        <!-- Name Input -->
+        <div>
+          <label for="callback-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+              <User size={16} />
+            </span>
+            <input 
+              type="text" 
+              name="name" 
+              id="callback-name" 
+              required 
+              placeholder="e.g. Rahul Sharma" 
+              class="form-control h-11 text-sm text-slate-900 placeholder:text-slate-400"
+              style="padding-left: 2.75rem;"
+            />
+          </div>
+          <span class="error-msg text-xs text-red-500 mt-1 hidden" id="err-name">Please enter your name.</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Phone Input -->
+          <div>
+            <label for="callback-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Phone Number <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                <Phone size={16} />
+              </span>
+              <input 
+                type="tel" 
+                name="phone" 
+                id="callback-phone" 
+                required 
+                placeholder="e.g. +91 98765 43210" 
+                class="form-control h-11 text-sm text-slate-900 placeholder:text-slate-400"
+                style="padding-left: 2.75rem;"
+              />
+            </div>
+            <span class="error-msg text-xs text-red-500 mt-1 hidden" id="err-phone">Please enter a valid phone number.</span>
+          </div>
+
+          <!-- Email Input -->
+          <div>
+            <label for="callback-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email Address <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                <Mail size={16} />
+              </span>
+              <input 
+                type="email" 
+                name="email" 
+                id="callback-email" 
+                required 
+                placeholder="e.g. rahul@example.com" 
+                class="form-control h-11 text-sm text-slate-900 placeholder:text-slate-400"
+                style="padding-left: 2.75rem;"
+              />
+            </div>
+            <span class="error-msg text-xs text-red-500 mt-1 hidden" id="err-email">Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Country dropdown -->
+          <div>
+            <label for="callback-country" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Country of Residence <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                <Globe size={16} />
+              </span>
+              <select 
+                name="country" 
+                id="callback-country" 
+                required 
+                class="form-control pr-10 h-11 text-sm text-slate-900 bg-white appearance-none cursor-pointer"
+                style="padding-left: 2.75rem;"
+              >
+                {countries.map((country) => (
+                  <option value={country}>{country}</option>
+                ))}
+              </select>
+              <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+                <ChevronDown size={16} />
+              </span>
+            </div>
+          </div>
+
+          <!-- Visa Interest -->
+          <div>
+            <label for="callback-visa" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Visa Type of Interest <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                <Globe size={16} />
+              </span>
+              <select 
+                name="visa_interest" 
+                id="callback-visa" 
+                required 
+                class="form-control pr-10 h-11 text-sm text-slate-900 bg-white appearance-none cursor-pointer"
+                style="padding-left: 2.75rem;"
+              >
+                <option value="Student Visa">Student Visa (Education)</option>
+                <option value="Work Permit">Work Permit / Skilled Worker</option>
+                <option value="Tourist Visa">Tourist / Visitor Visa</option>
+                <option value="Business Immigration">Business / Investor Visa</option>
+                <option value="General Inquiry">General Immigration Inquiry</option>
+              </select>
+              <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+                <ChevronDown size={16} />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferred Time -->
+        <div>
+          <label for="callback-time" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Preferred Callback Time</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+              <Clock size={16} />
+            </span>
+            <select 
+              name="preferred_time" 
+              id="callback-time" 
+              class="form-control pr-10 h-11 text-sm text-slate-900 bg-white appearance-none cursor-pointer"
+              style="padding-left: 2.75rem;"
+            >
+              <option value="Anytime (9 AM - 7 PM)">Anytime (9 AM - 7 PM)</option>
+              <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+              <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+              <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+            </select>
+            <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+              <ChevronDown size={16} />
+            </span>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="callback-message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Additional Message / Question</label>
+          <div class="relative">
+            <span class="absolute top-3 left-3.5 pointer-events-none text-slate-400">
+              <MessageSquare size={16} />
+            </span>
+            <textarea 
+              name="message" 
+              id="callback-message" 
+              rows="3" 
+              placeholder="Tell us about your target countries or requirements..." 
+              class="form-control text-sm text-slate-900 placeholder:text-slate-400"
+              style="padding-left: 2.75rem;"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          id="callback-submit-btn" 
+          class="btn-primary w-full h-12 text-sm font-bold tracking-wide transition-all mt-6 cursor-pointer flex items-center justify-center gap-2"
+        >
+          <span id="btn-text">Send Callback Request</span>
+          <!-- Loading Spinner -->
+          <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+
+        <!-- General Error Alert -->
+        <div id="submission-error" class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-xs text-red-600 leading-relaxed">
+          <strong>Something went wrong.</strong> Please check your internet connection or email us directly at contact@truegatevisa.com.
+        </div>
+      </form>
+    </div>
+
+    <!-- Success View (Hidden by default) -->
+    <div id="modal-success-view" class="hidden text-center py-8">
+      <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-6">
+        <CheckCircle2 size={36} />
+      </div>
+      <h3 class="font-heading text-2xl font-black text-slate-900 tracking-tight">
+        Callback Scheduled!
+      </h3>
+      <p class="mt-2 text-sm text-slate-500 max-w-sm mx-auto leading-relaxed">
+        Thank you for reaching out, <span id="success-user-name" class="font-bold text-slate-800">applicant</span>. One of our lead visa counselors will call you on <span id="success-user-phone" class="font-bold text-slate-800">your number</span> at your preferred time.
+      </p>
+      <div class="mt-8 border-t border-slate-100 pt-6">
+        <p class="text-xs text-slate-400">Want immediate advice?</p>
+        <a 
+          id="success-whatsapp-link" 
+          href="https://wa.me/919720409020" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-primary mt-3 inline-flex items-center gap-2 text-xs"
+        >
+          <span>Chat on WhatsApp</span>
+          <ArrowRight size={14} />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const initCallbackModal = () => {
+    // Select modal DOM elements
+    const modal = document.getElementById('callback-modal');
+    const container = document.getElementById('modal-container');
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('modal-close');
+    const form = document.getElementById('callback-form');
+    
+    // View panels
+    const formView = document.getElementById('modal-form-view');
+    const successView = document.getElementById('modal-success-view');
+    
+    // Fields and success details
+    const successName = document.getElementById('success-user-name');
+    const successPhone = document.getElementById('success-user-phone');
+    const successWaLink = document.getElementById('success-whatsapp-link');
+    
+    // Triggers
+    const openTriggers = document.querySelectorAll('[data-callback-trigger], #callback-trigger-desktop, #callback-trigger-mobile');
+    
+    // Submit state elements
+    const submitBtn = document.getElementById('callback-submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const errorAlert = document.getElementById('submission-error');
+
+    let activeTrigger = null;
+
+    if (!modal || !container || !backdrop || !closeBtn || !form) {
+      return;
+    }
+
+    // Modal open function
+    const openModal = (e) => {
+      e.preventDefault();
+      activeTrigger = document.activeElement;
+
+      // Reset views
+      formView.classList.remove('hidden');
+      successView.classList.add('hidden');
+      errorAlert.classList.add('hidden');
+      form.reset();
+      
+      // Make modal visible
+      modal.classList.remove('invisible');
+      modal.classList.add('opacity-100');
+      
+      // Slide container up & scale
+      setTimeout(() => {
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        backdrop.classList.remove('opacity-0');
+        backdrop.classList.add('opacity-100');
+        
+        // Focus trap initial input
+        const nameInput = document.getElementById('callback-name');
+        if (nameInput) nameInput.focus();
+      }, 50);
+      
+      document.addEventListener('keydown', handleKeydown);
+      document.body.classList.add('overflow-hidden');
+    };
+
+    // Modal close function
+    const closeModal = () => {
+      // Transition out
+      container.classList.remove('scale-100', 'opacity-100');
+      container.classList.add('scale-95', 'opacity-0');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0');
+      modal.classList.remove('opacity-100');
+
+      setTimeout(() => {
+        modal.classList.add('invisible');
+        document.body.classList.remove('overflow-hidden');
+      }, 300);
+
+      document.removeEventListener('keydown', handleKeydown);
+      if (activeTrigger) activeTrigger.focus();
+    };
+
+    // Keyboard handlers (Escape & Tab trap)
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+      
+      // Focus Trap
+      if (e.key === 'Tab') {
+        const focusableElements = container.querySelectorAll(
+          'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) { // Shift + Tab
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else { // Tab
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    // Bind triggers
+    openTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openModal);
+    });
+
+    // Close bindings
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+
+    // Form Submission with Web3Forms API
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Clean previous error
+      errorAlert.classList.add('hidden');
+      
+      // Set submitting state
+      submitBtn.disabled = true;
+      btnSpinner.classList.remove('hidden');
+      btnText.textContent = "Sending Request...";
+
+      const formData = new FormData(form);
+      const dataObj = Object.fromEntries(formData);
+      
+      try {
+        // Submit using Web3Forms URL
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataObj)
+        });
+
+        const json = await response.json();
+        
+        if (response.status === 200 || json.success) {
+          // Setup success view data
+          if (successName) successName.textContent = dataObj.name;
+          if (successPhone) successPhone.textContent = dataObj.phone;
+          
+          if (successWaLink) {
+            const waText = encodeURIComponent(`Hi TrueGate Visa, I just requested a callback under the name: ${dataObj.name}. I'd like to get connected here as well!`);
+            successWaLink.setAttribute('href', `https://wa.me/919720409020?text=${waText}`);
+          }
+          
+          // Switch view panels
+          formView.classList.add('hidden');
+          successView.classList.remove('hidden');
+        } else {
+          // Show API response error or default
+          errorAlert.classList.remove('hidden');
+          errorAlert.textContent = json.message || "Failed to submit request. Please try again.";
+        }
+      } catch (err) {
+        errorAlert.classList.remove('hidden');
+        errorAlert.textContent = "Network error. Please check your connection and try again.";
+      } finally {
+        // Reset submit button state
+        submitBtn.disabled = false;
+        btnSpinner.classList.add('hidden');
+        btnText.textContent = "Send Callback Request";
+      }
+    });
+  };
+
+  // Run on load and pages transition (Astro routing support)
+  document.addEventListener('DOMContentLoaded', initCallbackModal);
+  document.addEventListener('astro:page-load', initCallbackModal);
+</script>

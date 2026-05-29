@@ -121,9 +121,9 @@ import MobileMenuCta from './mobile-menu/MobileMenuCta.astro';
 			menuBackdrop.addEventListener('click', closeMenu);
 		}
 
-		// Close when clicking nav links
+		// Close when clicking nav links or callback trigger button
 		if (mobileMenu) {
-			const navLinks = mobileMenu.querySelectorAll('a');
+			const navLinks = mobileMenu.querySelectorAll('a, #callback-trigger-mobile');
 			navLinks.forEach(link => {
 				link.addEventListener('click', closeMenu);
 			});

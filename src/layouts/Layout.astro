@@ -9,6 +9,7 @@ import '@fontsource/plus-jakarta-sans/600.css';
 import '@fontsource/plus-jakarta-sans/700.css';
 import SEO from '../components/common/SEO.astro';
 import StructuredData from '../components/common/StructuredData.astro';
+import CallbackModal from '../components/common/CallbackModal.astro';
 
 interface Props {
 	title: string;
@@ -116,5 +117,6 @@ const {
 	</head>
 	<body class="text-slate-900 font-sans antialiased selection:bg-accent selection:text-slate-900 overflow-x-hidden">
 		<slot />
+		<CallbackModal />
 	</body>
 </html>

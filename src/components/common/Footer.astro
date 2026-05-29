@@ -1,63 +1,142 @@
 ---
+import { MapPin, Mail, Phone, ArrowUpRight, Globe, ShieldCheck } from 'lucide-react';
 ---
 
-<footer class="bg-white border-t border-slate-200 text-primary pt-16 pb-8">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-			<!-- Brand -->
-			<div class="space-y-4">
-				<a href="/" class="block">
-					<img src="/logo.svg" alt="TrueGate Visa" class="h-14 w-auto" />
+<footer class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50/50 text-slate-800 pt-20 pb-10 overflow-hidden">
+	<!-- Gradient Top Border Divider -->
+	<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-primary-light via-accent to-primary-light"></div>
+
+	<div class="container mx-auto px-4 relative z-10">
+		<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-12 mb-16">
+			
+			<!-- Brand Column -->
+			<div class="md:col-span-4 space-y-6">
+				<a href="/" class="inline-block group">
+					<img 
+						src="/logo.svg" 
+						alt="TrueGate Visa" 
+						class="h-14 w-auto transition-transform duration-300 group-hover:scale-[1.02]" 
+					/>
 				</a>
-				<p class="text-slate-600 text-sm leading-relaxed">
-					Premium visa consultancy and document verification support in Ernakulam, Kerala, offering transparent, process-driven pathways to global approval.
+				<p class="text-slate-600 text-sm leading-relaxed max-w-sm">
+					TrueGate Visa is Ernakulam’s trusted process-driven immigration consultancy, specializing in high-success visa solutions for students, skilled professionals, families, and tourists worldwide. With a strong focus on accuracy, compliance, and transparency, we provide end-to-end guidance through detailed documentation audits, personalized visa strategies, interview preparation, and expert advisory support to ensure a smooth and reliable immigration journey.
 				</p>
-			</div>
-
-			<!-- Links -->
-			<div>
-				<h4 class="text-lg font-heading font-bold mb-6">Explore</h4>
-				<ul class="space-y-3 text-sm text-slate-500">
-					<li><a href="/about" class="hover:text-accent transition-colors">About Us</a></li>
-					<li><a href="/destinations" class="hover:text-accent transition-colors">Destinations</a></li>
-					<li><a href="/services" class="hover:text-accent transition-colors">Services</a></li>
-					<li><a href="/contact" class="hover:text-accent transition-colors">Contact</a></li>
-				</ul>
-			</div>
-
-			<!-- Contact -->
-			<div>
-				<h4 class="text-lg font-heading font-bold mb-6">Contact</h4>
-				<ul class="space-y-3 text-sm text-slate-500">
-					<li>
-						<a href="https://maps.app.goo.gl/6VkcPLYxnHj9q2W9A" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors block">
-							Ernakulam, Kerala 682011
-						</a>
-					</li>
-					<li><a href="mailto:info@truegatevisa.com" class="hover:text-accent transition-colors block">info@truegatevisa.com</a></li>
-					<li><a href="tel:+919720409020" class="hover:text-accent transition-colors block">+91 97204 09020</a></li>
-				</ul>
-			</div>
-
-			<!-- Newsletter/Social -->
-			<div>
-				<h4 class="text-lg font-heading font-bold mb-6">Follow Us</h4>
-				<div class="flex flex-wrap gap-3">
-					<a href="https://wa.me/919720409020" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 hover:border-accent hover:text-accent transition-colors">
-						<span>WhatsApp</span>
-					</a>
-					<a href="mailto:info@truegatevisa.com" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 hover:border-accent hover:text-accent transition-colors">
-						<span>Email</span>
-					</a>
-					<a href="https://maps.app.goo.gl/6VkcPLYxnHj9q2W9A" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 hover:border-accent hover:text-accent transition-colors">
-						<span>Location</span>
-					</a>
+				
+				<!-- Trust badge -->
+				<div class="flex items-center gap-2 text-xs text-primary-light font-semibold bg-primary/5 border border-primary/10 rounded-lg p-2.5 max-w-xs">
+					<ShieldCheck size={16} class="shrink-0 text-primary" />
+					<span>Verified Consular Documentation Support</span>
 				</div>
 			</div>
+
+			<!-- Spacing column for md layouts -->
+			<div class="hidden lg:block lg:col-span-1"></div>
+
+			<!-- Links Column -->
+			<div class="md:col-span-3 lg:col-span-2">
+				<h4 class="text-sm font-heading font-extrabold uppercase tracking-wider text-slate-900 mb-6 flex items-center gap-2">
+					<span>Explore</span>
+					<span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+				</h4>
+				<ul class="space-y-3.5 text-sm">
+					<li>
+						<a href="/about" class="group flex items-center gap-1 text-slate-500 hover:text-primary transition-colors duration-200">
+							<span class="transition-transform duration-200 group-hover:translate-x-1">About Us</span>
+							<ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+						</a>
+					</li>
+					<li>
+						<a href="/destinations" class="group flex items-center gap-1 text-slate-500 hover:text-primary transition-colors duration-200">
+							<span class="transition-transform duration-200 group-hover:translate-x-1">Destinations</span>
+							<ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+						</a>
+					</li>
+					<li>
+						<a href="/services" class="group flex items-center gap-1 text-slate-500 hover:text-primary transition-colors duration-200">
+							<span class="transition-transform duration-200 group-hover:translate-x-1">Services</span>
+							<ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+						</a>
+					</li>
+					<li>
+						<a href="/contact" class="group flex items-center gap-1 text-slate-500 hover:text-primary transition-colors duration-200">
+							<span class="transition-transform duration-200 group-hover:translate-x-1">Contact</span>
+							<ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Contact Column -->
+			<div class="md:col-span-5 lg:col-span-5 space-y-6">
+				<h4 class="text-sm font-heading font-extrabold uppercase tracking-wider text-slate-900 mb-6 flex items-center gap-2">
+					<span>Contact Desk</span>
+					<span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+				</h4>
+				<ul class="space-y-4 text-sm text-slate-600">
+					<!-- Address -->
+					<li class="flex items-start gap-3.5 group">
+						<div class="w-8 h-8 rounded-full bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+							<MapPin size={15} />
+						</div>
+						<div class="pt-0.5">
+							<span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Office Address</span>
+							<a 
+								href="https://maps.app.goo.gl/6VkcPLYxnHj9q2W9A" 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								class="hover:text-primary font-medium transition-colors"
+							>
+								Ernakulam, Kerala 682011, India
+							</a>
+						</div>
+					</li>
+
+					<!-- Email -->
+					<li class="flex items-start gap-3.5 group">
+						<div class="w-8 h-8 rounded-full bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+							<Mail size={15} />
+						</div>
+						<div class="pt-0.5">
+							<span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Email Support</span>
+							<a href="mailto:info@truegatevisa.com" class="hover:text-primary font-medium transition-colors">
+								info@truegatevisa.com
+							</a>
+						</div>
+					</li>
+
+					<!-- Phone -->
+					<li class="flex items-start gap-3.5 group">
+						<div class="w-8 h-8 rounded-full bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+							<Phone size={15} />
+						</div>
+						<div class="pt-0.5">
+							<span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Phone Hotline</span>
+							<a href="tel:+919720409020" class="hover:text-primary font-medium transition-colors">
+								+91 97204 09020
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
 		</div>
 
-		<div class="border-t border-slate-200 pt-8 text-center text-xs text-slate-500">
+		<!-- Footer Bottom Divider -->
+		<div class="border-t border-slate-200/70 pt-8 mt-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
 			<p>&copy; {new Date().getFullYear()} TrueGate Visa. All rights reserved.</p>
+			
+			<div class="flex items-center gap-6">
+				<a href="https://wa.me/919720409020" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-center gap-1">
+					<span>WhatsApp Desk</span>
+					<ArrowUpRight size={10} />
+				</a>
+				<span class="h-3 w-[1px] bg-slate-300"></span>
+				<a href="https://maps.app.goo.gl/6VkcPLYxnHj9q2W9A" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-center gap-1">
+					<span>Get Directions</span>
+					<ArrowUpRight size={10} />
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>
