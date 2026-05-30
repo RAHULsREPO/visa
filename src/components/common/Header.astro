@@ -5,7 +5,7 @@ import MobileMenuButton from './MobileMenuButton.astro';
 import MobileMenu from './MobileMenu.astro';
 ---
 
-<header class="fixed inset-x-0 top-0 z-[9999] pt-5 transition-all duration-500">
+<header id="main-header" class="fixed inset-x-0 top-0 z-[9999] pt-5 transition-transform duration-300 ease-in-out">
 	<div class="container mx-auto px-4">
 		<div class="relative flex items-center justify-between rounded-2xl border border-slate-200/50 bg-white/60 backdrop-blur-md px-4 py-2.5 md:px-6 md:py-3 transition-all duration-500 shadow-sm shadow-slate-100">
 			<!-- Logo -->
@@ -27,3 +27,50 @@ import MobileMenu from './MobileMenu.astro';
 	<!-- Mobile Menu -->
 	<MobileMenu />
 </header>
+
+<script is:inline>
+	const initHeaderScroll = () => {
+		const header = document.getElementById('main-header');
+		if (!header) return;
+
+		if (header.dataset.scrollInitialized === 'true') {
+			return;
+		}
+		header.dataset.scrollInitialized = 'true';
+
+		let lastScrollY = window.scrollY;
+
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			const mobileMenu = document.getElementById('mobile-menu');
+
+			// Prevent running logic on negative/bounce scroll (iOS)
+			if (currentScrollY < 0) return;
+
+			// If mobile menu is open, don't hide the header
+			if (mobileMenu && mobileMenu.classList.contains('visible')) {
+				return;
+			}
+
+			if (currentScrollY > lastScrollY && currentScrollY > 100) {
+				// Scrolling down - hide header
+				header.classList.add('-translate-y-full');
+			} else {
+				// Scrolling up or near top - show header
+				header.classList.remove('-translate-y-full');
+			}
+
+			lastScrollY = currentScrollY;
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
+		// Clean up the event listener on page transitions
+		document.addEventListener('astro:before-swap', () => {
+			window.removeEventListener('scroll', handleScroll);
+		}, { once: true });
+	};
+
+	document.addEventListener('DOMContentLoaded', initHeaderScroll);
+	document.addEventListener('astro:page-load', initHeaderScroll);
+</script>
