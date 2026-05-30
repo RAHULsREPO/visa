@@ -1,8 +1,10 @@
 ---
 import { MessageCircle, Phone } from 'lucide-react';
+import LanguageSelector from './LanguageSelector.astro';
 ---
 
-<div class="hidden md:flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+	<LanguageSelector />
 	<button 
 		id="callback-trigger-desktop" 
 		class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 transition-all text-sm font-bold cursor-pointer"
@@ -15,4 +17,13 @@ import { MessageCircle, Phone } from 'lucide-react';
 		<span>Start a Chat</span>
 	</a>
 </div>
+
+<div class="hidden md:flex lg:hidden items-center gap-3 flex-shrink-0">
+	<LanguageSelector />
+	<a href="https://wa.me/919720409020" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-2 px-4">
+		<MessageCircle size={14} />
+		<span>Chat</span>
+	</a>
+</div>
+
 
