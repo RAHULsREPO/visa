@@ -21,7 +21,7 @@ export default defineConfig({
         name: 'resolve-dist-favicon',
         configureServer(server) {
           server.middlewares.use(async (req, res, next) => {
-            if (req.url === '/dist/favicon.svg' || req.url?.startsWith('/dist/favicon.svg')) {
+            if (req.url?.includes('dist/favicon.svg')) {
               try {
                 const fs = await import('node:fs/promises');
                 const path = await import('node:path');
