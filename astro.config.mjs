@@ -15,7 +15,7 @@ export default defineConfig({
       {
         name: 'ignore-dist-favicon',
         resolveId(id) {
-          if (id.includes('dist/favicon.svg')) {
+          if (id.replace(/\\/g, '/').includes('dist/favicon.svg')) {
             return 'virtual-dist-favicon';
           }
           return null;
