@@ -112,9 +112,10 @@
         setTranslateCookie(selectedLang);
         triggerGoogleTranslate(selectedLang);
         
-        // Refresh page to apply clean styles for native elements if needed,
-        // or let Google Translate translate dynamically.
-        // Google Translate translates dynamically instantly if loaded.
+        // Force page reload after short timeout to apply translation cookie clean
+        setTimeout(() => {
+          window.location.reload();
+        }, 150);
       });
     });
 
