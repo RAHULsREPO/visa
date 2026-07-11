@@ -9,7 +9,7 @@ const isActive = (path: string) => {
 };
 ---
 
-<nav class="hidden md:flex items-center gap-8">
+<nav class="hidden lg:flex items-center lg:gap-4 xl:gap-6 2xl:gap-8">
 	{desktopNavLinks.map(link => {
 		const isAnchorLink = link.href.includes('#');
 		const active = isAnchorLink ? false : isActive(link.href);

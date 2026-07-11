@@ -5,20 +5,20 @@ export interface NavLink {
 
 export const desktopNavLinks: NavLink[] = [
   { href: '/', label: 'Home' },
-  { href: '/#visa-services', label: 'Visa Services' },
+  { href: '/#visa-services', label: 'Services' },
   { href: '/destinations', label: 'Destinations' },
-  { href: '/#success-process', label: 'Success Process' },
-  { href: '/#eligibility-checker', label: 'Eligibility Assessment' },
+  { href: '/#success-process', label: 'Process' },
+  { href: '/#eligibility-checker', label: 'Eligibility' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ];
 
 export const mobileNavLinks: NavLink[] = [
   { href: '/', label: 'Home' },
-  { href: '/#visa-services', label: 'Visa Services' },
+  { href: '/#visa-services', label: 'Services' },
   { href: '/destinations', label: 'Destinations' },
-  { href: '/#success-process', label: 'Success Process' },
-  { href: '/#eligibility-checker', label: 'Eligibility Assessment' },
+  { href: '/#success-process', label: 'Process' },
+  { href: '/#eligibility-checker', label: 'Eligibility' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ];

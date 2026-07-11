@@ -6,7 +6,7 @@ import MobileMenuCta from './mobile-menu/MobileMenuCta.astro';
 ---
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 md:hidden" style="pointer-events: none;">
+<div id="mobile-menu" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 lg:hidden" style="pointer-events: none;">
 	<!-- Backdrop with Blur -->
 	<div class="absolute inset-0 bg-black/40 backdrop-blur-md" id="menu-backdrop" style="pointer-events: auto;"></div>
 	
@@ -138,7 +138,7 @@ import MobileMenuCta from './mobile-menu/MobileMenuCta.astro';
 
 		// Close if viewport switches to desktop breakpoint
 		window.addEventListener('resize', () => {
-			if (window.innerWidth >= 768 && isMenuOpen()) {
+			if (window.innerWidth >= 1024 && isMenuOpen()) {
 				closeMenu();
 			}
 		});

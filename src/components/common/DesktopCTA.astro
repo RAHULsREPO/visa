@@ -3,11 +3,11 @@ import { MessageCircle, Phone } from 'lucide-react';
 import LanguageSelector from './LanguageSelector.astro';
 ---
 
-<div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+<div class="hidden lg:flex items-center lg:gap-3 xl:gap-4 flex-shrink-0">
 	<LanguageSelector />
 	<button 
 		id="callback-trigger-desktop" 
-		class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 transition-all text-sm font-bold cursor-pointer"
+		class="hidden xl:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 transition-all text-sm font-bold cursor-pointer"
 	>
 		<Phone size={14} />
 		<span>Request Callback</span>
